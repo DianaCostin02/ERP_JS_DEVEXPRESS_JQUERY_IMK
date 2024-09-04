@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-Equiv="Cache-Control" Content="no-cache">
+	<meta http-Equiv="Pragma" Content="no-cache">
+	<meta http-Equiv="Expires" Content="0">
+
+	<link rel="icon" href="/images/new_logo.png" />
+
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+		integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+		integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+	
+    <!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+       
+	<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+	<link href="../css/main.css" rel="stylesheet" />
+	<link href="../css/cool.css" rel="stylesheet" />
+	<title>Home</title>
+</head>
+
+<body>
+	<div id="mySidenav" class="sidenav" style="padding-top:20px;">
+
+		<a class="d-flex align-items-center p-0 m-0 link-dark text-decoration-none ">
+			<!--	<div style="padding-left:20px;" class="col left">
+					<img  class="ruota"width="90" height="72" src="/images/logo-intemek-trasparente.ico"	></img>
+				</div>-->
+		<div class="row row-pers">
+			<div class="col col-pers" >
+				<!--<span class="white fs-5 fw-semibold"> INTERMEK</span>
+					<img  class="ruota"width="60" height="48" src="/images/logo-intemek-trasparente.ico"	></img>
+					-->
+				 
+						<a href="/scanpresenze.shtml" target="_blank" class="btn white sottoMenu">
+							Scan Presenze
+						
+						</a>
+					
+			</div>
+			<div class="col right">
+				<button style="border-color:transparent;background-color:transparent;color:white; font-size: 35px;"
+					onclick="closeNav()">
+					<i class="bi bi-x"></i>
+				</button>
+
+			</div>
+		</div>
+
+		</a>
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+			<li class="white mb-1">
+				
+				<br>
+				<button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#list-collapse"
+					aria-expanded="true">
+					Principali
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<div style="padding-top: 5px;" class="white collapse show" id="list-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						
+						<li>
+							<a href="/listaOrdini.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+								Lista Ordini
+							</a>
+						</li>
+						<li>
+							<a href="/listaddt.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+								Lista DDT
+							</a>
+						</li>
+						<li>
+							<a href="/listaCommesse.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+								Lista Commesse
+							</a>
+						</li>
+						<li>
+							<a href="/listaCommesseStorico.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+								Storico Commesse
+							</a>
+						</li>
+						<li>
+							<a href="/listaFasi.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+								Lista Fasi X Macchine
+							</a>
+						</li>
+						<li>
+							<a href="/listaFasiPersone.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+								Lista Fasi X Persone
+							</a>
+						</li>
+						<li>
+							<a href="/menuCluster.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								Menu Cluster
+							</a>
+						</li>
+					
+						<li>
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSfhSEHaLgXKnAHfaEEZ9Hn8xvOlAak69Re7xcwbmvkloZotyQ/viewform"
+								target="_blank" class="btn yellowYe sottoMenuYellow">
+								Permessi
+								<i class="bi bi-phone"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/segnalazioni.shtml" target="_blank" class="btn redYe sottoMenuRed">
+								Segnalazioni
+								<i class="bi bi-phone"></i>
+							</a>
+						</li>
+					<!--	<li>
+							<a href="/dataGridTempiTask.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								Estrazioni Tempi Task
+							</a>
+						</li>-->
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#listArt-collapse"
+					aria-expanded="true">
+					Gestione 
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<div style="padding-top: 5px;" class="white collapse " id="listArt-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						<li>							
+							<a href="/contenitoreFasiCicli.shtml" target="_blank" class="btn white sottoMenu">
+								Contenitore Fasi
+							</a>
+						</li>
+						<li>
+							<a href="/newArt.shtml" target="_blank" class="btn yellowYe sottoMenuYellow">
+								 Nuovo Articolo
+								 
+							</a>
+						</li>
+						<li>
+							<a href="/listaRDA.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+								RDA
+							</a>
+						</li>
+						
+						<li>
+							<a href="/listaArticoli.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								Articoli
+							</a>
+						</li>
+						<li>
+							<a href="/listaOfferte.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+								Offerte
+							</a>
+						</li>
+						
+						<li>							
+							<a href="/OEE.shtml" target="_blank" class="btn white sottoMenu">
+								OEE
+							</a>
+						</li>
+						
+				 
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#listAna-collapse"
+					aria-expanded="true">
+					Angrafiche e Risorse 
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<div style="padding-top: 5px;" class="white collapse " id="listAna-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						<li>
+							<a href="/listaContatti.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+								Gestione Contatti
+							</a>
+						</li>
+						<li>
+							<a href="/anagCliFor.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+								E2K Anag Cli For
+							</a>
+						</li>
+						
+						<li>
+							<a href="/Pers_Anag.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								TEST - Persone Anagrafica (RU)
+							</a>
+						</li>
+				 
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+					data-bs-target="#list4-collapse " aria-expanded="true">
+					4.0
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<div style="padding-top: 5px;" class="white collapse show" id="list4-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+						<li>
+							<a href="/MTConnect.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								MT Connect
+							</a>
+						</li>
+					<!--	<li>
+							<a href="/Cobot.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+								Cobot
+							</a>
+						</li>-->
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!--<ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+					data-bs-target="#list5-collapse" aria-expanded="true">
+					(SVILUPPO IN CORSO) Presenze e permessi
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<div style="padding-top: 5px;" class="white collapse" id="list5-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+				 
+						<li>
+							<a href="/listaPresenze.shtml" target="_blank" class="btn white sottoMenu">
+								Lista presenze/permessi
+							</a>
+						</li>
+						<li>
+							<a href="/formperm.shtml" target="_blank" class="btn white sottoMenu">
+								Richiesta permessi
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>-->
+		
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+					data-bs-target="#test-collapse-options" aria-expanded="true">
+					Altre opzioni
+					<i class="bi bi-chevron-down"></i>
+				</button>
+
+				<div style="padding-top: 20px;" class="white collapse " id="test-collapse-options">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						<li>
+							<a href="/menuCluster.shtml" target="_blank" class="btn white sottoMenu">
+								Menu Cluster
+							</a>
+						</li>
+						
+						<li>
+							<a href="http://10.10.25.2" target="_blank" class="btn greenYe sottoMenuGreen">
+								Portale Clienti
+							</a>
+						</li>
+						
+						<li>
+							<a href="/listaPriorita.shtml" target="_blank" class="btn white sottoMenu">
+								Lista Priorità
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+			<li class="white mb-1">
+				<br>
+				<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+					data-bs-target="#test-collapse" aria-expanded="true">
+					Test
+					<i class="bi bi-chevron-down"></i>
+				</button>
+
+				<div style="padding-top: 20px;" class="white collapse show" id="test-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						
+					 	<li>
+							<a href="/test1.shtml?id=19&type=macchina" class="btn white sottoMenu">
+								Tempi X Macchina 
+							</a>
+
+						</li> 
+						<li>
+							<a href="/test2.shtml?id=117998" class="btn white sottoMenu">
+								Update Articolo
+							</a>
+						</li>
+						
+					<!--
+						<li>
+							<a href="/test3.shtml" class="btn white sottoMenu">
+								GANTT
+							</a>
+						</li>-->
+						<li>
+							<a href="/test4.shtml?id=108964&a=prelievi" class="btn white sottoMenu">
+								New Prelievi
+							</a>
+						</li> 
+						<!--
+					 <li>
+							<a href="/test4.shtml?id=108964&a=prelievi" class="btn white sottoMenu">
+								New Prelievi
+							</a>
+						</li> 
+						<li>
+							<a href="/stage/Robert/Calendario/graficoFasi.shtml" class="btn white sottoMenu">
+								Svilluppo - GANTT
+							</a>
+						</li>
+						<li>
+							<a href="/cellWebex.shtml" target="_blank"
+								class="btn orangeYe sottoMenuOrange">
+								VOIP WEB
+							</a>
+						</li>-->
+						
+						<li>							
+							<a href="/timeLineComm.shtml" class="btn white sottoMenu">
+								Time Line Commesse
+							</a>
+						</li>
+						<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+							<li>
+								<a href="/listaPresenze.shtml" target="_blank" class="btn white sottoMenu">
+									Lista presenze/permessi
+								</a>
+							</li>
+							<li>
+								<a href="/TESTlistaFasiMacchina.shtml?id=61" target="_blank" class="btn white sottoMenu">
+									Lista macchina semplice
+								</a>
+							</li>
+						</ul>
+					
+						<li>							
+							<a href="/TEST5.shtml?id=5467" class="btn white sottoMenu">
+								TRANSLATE DOCUMENT
+							</a>
+						</li>
+						<li>							
+							<a href="/tempiMacchinaLarge.shtml" class="btn white sottoMenu">
+								Test tempi macchina large
+							</a>
+						</li>
+					<!--	<li>
+							<a href="/graficiMacchinePersone.shtml" target="_blank"
+								class="btn orangeYe sottoMenuOrange">
+								Grafici Persone Macchine
+							</a>
+						</li>-->
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+
+		<!-- FOOTER DELLA BARRA LATERALE CON USER LOG style="background-color:transparent; border-color:trasparent;"-->
+
+		<div class="dropdown border-top ">
+			<br>
+			<div class="row ">
+				
+				<div class="col-1 pl-5 left">
+					<img src="/images/user_white.png" width="50" height="50" class="rounded-circle">
+				</div>
+				<div class="col-7 pl-5">
+					<p class="white pr-0 pb-0 mb-0">Utente loggato: </p>
+					<p class="white pr-0 pt-0 nt-0" id="user-logged"></p>
+				</div>
+				<div class="col-3 pb-4 pr-6 " style="vertical-align: middle;">
+					<div class="row">
+						<div class="col-4 ">
+							<form action="/4DACTION/www_start_post" method="POST">
+								<button title="Logout" id="logFuckingOut"class="btn btn-danger btn-sm" style="width: auto;" type="submit">
+								<!--	<strong>LOGOUT</strong>-->
+								<i class="bi bi-x-octagon"></i>
+							 
+								</button>
+							</form>
+						</div>
+						<div class="col-4">
+						 
+								<button title="Le mie fasi" class="btn btn-success btn-sm tempi-row" id="scorciaoia_op_pers" style="width: auto;" >
+									<i class="bi bi-list-check"></i>
+								 
+								</button>
+						</div>
+						<div class="col-4">	 
+								<button title="I miei tempi"class="btn btn-success btn-sm tempi-row" id="scorciaoia_tempi_task" style="width: auto;" >
+									<i class="bi bi-clock"></i>
+								 
+								</button>
+							</div>
+						
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<nav class="navbar navbar-dark bg-dark">
+			<div class="row row-pers">
+				<div class="col-1 col-pers center">
+					<button type="button" id="btnMenu" class="btn btn-dark" style="width: 100px;"
+						onclick="openNav()"><strong style="font-size: 2em;">&#9776;</strong></button>
+				</div>
+				<div class="col-4 col-pers padding-12">
+					<div class="row row-pers">
+						<div class="col-11 col-pers">
+							<input type="text" class="width100perc height100perc" id="txtRicerca" autocomplete="off"
+								onkeydown="RicercaTasto(event)" placeholder="Scrivi qua per fare una ricerca" />
+						</div>
+						<div class="col-1 col-pers">
+							<button class="btn btn-success" id="btnCerca">Cerca</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-pers center">
+					<!--    <div class="row row-pers">
+						    <a class="navbar-brand" href="/" style="font-size: 2em; margin-right: 0;">
+                                Intermek
+                            </a>
+                        </div>-->
+				</div>
+
+
+				<div class="col-3 col-pers right padding-12">
+					<!--    <form action="/4DACTION/www_start_post" method="POST">
+							<button class="btn btn-danger" style="width: 100px;" type="submit">
+								<strong>LOGOUT</strong>
+							</button>
+						</form>-->
+				</div>
+				<div class="col-2 col-pers center padding-12">
+				</div>
+			</div>
+	</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="align-items-center">
+			<div id="menuDiv" style="padding-left: 450px;" class="col col-pers  ">
+				<div class="row row-pers pt-4 ">
+					<div class="col-4 ">
+
+					</div>
+					<div class="col-4 ">
+
+
+					</div>
+					<div class="col-2 ">
+
+					</div>
+					<div class="col-3 ">
+
+					</div>
+				</div>
+			</div>
+			<div id="homeIndex" class="" style="padding-top: 200px;padding-left: 50px;">
+				<div class="bounce"><!-- bounce sets distance and positizon in the page-->
+
+					<img class="letter" width="100px" height="100px" src="/images/new_logo.png"><img>
+					<span class="letter">I</span>
+					<span class="letter">N</span>
+					<span class="letter">T</span>
+					<span class="letter">E</span>
+					<span class="letter">R</span>
+					<span class="letter">M</span>
+					<span class="letter">E</span>
+					<span class="letter">K</span>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="animate-charcter">CONSULTA IL MENU PER ACCEDERE ALL'AREA DI TUO INTERESSE</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="buoneFeste" class="hidden"style="padding-top: 50px;padding-left: 550px;">
+			
+				<div class="bounce"><!-- bounce sets distance and positizon in the page-->
+
+					<img class="letter" width="100px" height="100px" src="/images/new_logo.png"><img>
+					<span class="letter">I</span>
+					<span class="letter">N</span>
+					<span class="letter">T</span>
+					<span class="letter">E</span>
+					<span class="letter">R</span>
+					<span class="letter">M</span>
+					<span class="letter">E</span>
+					<span class="letter">K</span>
+				</div>
+				<img src="/gif/buoneFeste.gif" alt="GIF Video">
+				<img src="/gif/cTree.gif" alt="GIF Video">
+		
+			</div>
+		</div>
+	</div>
+
+	<!--     <div class="container">
+        	
+				<div class="row text-center mb-3">
+					<div class="col">
+						<h3>Clusters</h3>
+					</div>
+				</div>
+                </div>
+                <center>
+                <table>
+                    <tr><td class="head"colspan=5>FRESATURA</td></tr>
+                    <tr class="notHead"><td><a href="/cluster?id=45">FRES. MARCO</a></td><td><a href="/cluster?id=46">FRES. ROBY</a></td><td><a href="/cluster?id=49">Fresatura (Tutte le macchine - GANTT)</a></td><td><a href="/cluster?id=47">NLX TURNO 1</a></td><td><a href="/cluster?id=48">NLX TURNO 2</a></td></tr>
+                    
+                    <tr><td class="head"colspan=5>TORNITURA</td></tr>
+                    <tr class="notHead"><td><a href="/cluster?id=2">Fantina (GANTT)</a></td><td><a href="/cluster?id=35">Torn A attrezzisti</a></td><td><a href="/cluster?id=37">Torn A conduttori</a></td><td><a href="/cluster?id=44">Tornitura (tutte le macchine - GANTT)</a></td><td><a href="/cluster?id=36">Tornitura B</a></td></tr>
+                    
+                    <tr><td class="head"colspan=5>LOGISTICA</td></tr>
+                    <tr class="notHead"><td>Conto Lavoro Esterno</a></td><td>ESTERNI</a></td><td></td><td>Logistica (GANTT)</a></td><td>Montaggio (GANTT)</a></td></tr>
+                    
+                    <tr><td class="head"colspan=5>TUTTE LE FASI</td></tr>
+                    <tr class="notHead"><td>Cluster Direzione - (GANTT)</td><td>IT (GANTT)</td><td></td><td>IT-ESTERNI</td><td>QUALITA</td></tr>
+                    <tr class="notHead"><td><a href="/cluster?id=26">Ufficio Amministrazione</a></td><td></td><td>Ufficio Commerciale</td><td></td><td>Ufficio Tecnico (GANTT)</td></tr>
+                   
+
+                </table>
+            </center>
+                </div>-->
+	<style>
+		/*     .sidenav a 
+			{
+				
+				margin-left: 10px!important;
+				margin-right: 0px!important;
+			}*/
+		.sottoMenu {
+			text-align: left !important;
+		}
+
+		.btn-check:focus+.btn,
+		.btn:focus {
+			outline: 0;
+			box-shadow: 0 0 0 0.2rem transparent;
+		}
+
+		.dx-datagrid .dx-data-row>td.bullet {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		td {
+			text-align: left !important;
+			/* vertical-align:middle !important;*/
+
+		}
+
+		.dx-state-hover {
+			background-color: rgb(153, 65, 235, 0.2) !important;
+
+			color: black;
+
+			/* background-color:rgb(229, 223, 138, 0.2)!important;*/
+		}
+	
+		#gridContainer {
+
+			max-height: 90vh;
+			min-height: auto;
+
+		}
+
+		/*    .dx-scrollbar-horizontal .dx-scrollable-scroll {
+            height: 30px;
+            width: 5px;
+        }*/
+	</style>
+	<!--  CDN per JQUERY-->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+	<!--  CDN per BOOTSTRAP-->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+		integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+		crossorigin="anonymous"></script>
+
+	<!--  CDN per AXIOS CHIAMATE-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+		integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+		crossorigin="anonymous"></script>
+
+	<!-- DevExpress CDN per EXPORT EXCEL-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+	<!-- DevExpress.AspNet.Data 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-aspnet-data/2.8.6/dx.aspnet.data.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>-->
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
+
+	<!-- ALTRO -->
+	<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+	<script src="js/IMK_utils.js"></script>
+	<script src="js/index.js"></script>
+</body>
+
+</html>

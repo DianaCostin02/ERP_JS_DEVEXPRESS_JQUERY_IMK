@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Intermek</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Intermek</a>
+                <a href="javascript:window.history.back()" id="back-btn" class="btn btn-danger">Indietro</a>
+            </div>
+        </nav>
+
+        <div class="row row-pers mt-3 font20">
+            <div class="col col-pers center">
+                <h2 id="title"></h2>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-3 padding-10 font18">
+            <div class="col-4 col-pers">
+                <div class="row row-pers mt-3">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-4 col-pers">
+                        <p class="p-pers">Data:</p>
+                    </div>
+                    <div class="col-6 col-pers">
+                        <input type="date" class="width100perc right bold bg-lightyellow" id="dataPresenze" />
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+            </div>
+            <div class="col-4 col-pers">
+                <div class="row row-pers mt-3">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-4 col-pers">
+                        <p class="p-pers">Mese:</p>
+                    </div>
+                    <div class="col-6 col-pers">
+                        <input type="input" class="width100perc center bold" id="txtMese" disabled/>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+            </div>
+            <div class="col-4 col-pers">
+                <div class="row row-pers mt-3">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-4 col-pers">
+                        <p class="p-pers">Giorno:</p>
+                    </div>
+                    <div class="col-6 col-pers">
+                        <input type="input" class="width100perc center bold" id="txtGiorno" disabled/>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-3 padding-20">
+            <div class="col col-pers table-fix-head" style="height: 100%;">
+                <table class="table table-bordered center" id="presTable">
+                    <thead class="table-dark">
+                        <th>Operatore</th>
+                        <th>TP<br>RT</th>
+                        <th>TP<br>RT QP</th>
+                        <th class="separatorTable"></th>
+                        <th>Q.tà<br>Conf-Dich-NC</th>
+                        <th>% PP<br>RU</th>
+                        <th>TP<br>RU</th>
+                        <th class="separatorTable"></th>
+                        <th>TC<br>CODA</th>
+                        <th>T EFF<br>TP+TC</th>
+                        <th>% PE<br>RU</th>
+                    </thead>
+                    <tbody class="table-bordered" id="tbodyPresenze"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/IMK_utils.js"></script>
+        <script src="js/IMK_presenzeCluster.js"></script>
+    </body>
+</html>

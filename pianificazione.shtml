@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+        <link href="../css/main.css" rel="stylesheet" />
+
+        <title id="titolo_pianificazione"></title>
+    </head>
+
+    <body>
+        <div class="popupAlert d-none" id="popupAlert">
+            <div class="popupAlert-content">
+                <div class="row row-pers mb-2">
+                    <div class="col col-pers center">
+                        <h3 class="popupAlert-title"></h3>
+                    </div>
+                </div>
+                <div class="row row-pers mb-2">
+                    <div class="col col-pers center">
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers popupAlert-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-pers">
+                    <div class="col col-pers center">
+                        <button class="btn btn-secondary" id="btnCloseAlert">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cercaFase d-none" id="cerRisTec">
+			<div class="cercaFase-content">
+				<div class="row row-pers">
+                    <div class="col-3 col-pers">
+						<p class="p-pers">Cerca una risorsa tec:</p>
+					</div>
+					<div class="col-7 col-pers">
+						<input type="text" id="txtCercaRisTec" class="width100perc" style="margin-bottom: 16px;" autocomplete="off" onkeydown="RicercaTasto(event)"/>
+					</div>
+                    <div class="col-1 col-pers">
+                        <button class="btn btn-secondary" id="btnCercaRT">
+                            <i class="material-icons md-18">search</i>
+                        </button>
+                    </div>
+                    <div class="col-1 col-pers">
+                        <button class="btn red" id="closeCercaRT">
+                           <strong style="color:white">X</strong> 
+                        </button>
+                    </div>
+				</div>
+				<div class="row row-pers d-none" id="tabRisTec">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Risorsa Tecnologica</th>
+                            </thead>
+                            <tbody id="tbodyRisTec">
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="cercaFase d-none" id="listaPrelMag">
+			<div class="cercaFase-content">
+				<div class="row row-pers d-none" id="tabListaP">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Articolo</th>
+                                <th>Qta</th>
+                                <th>Data e Ora</th>
+                                <th>Utente</th>
+                            </thead>
+                            <tbody id="tbodyListaP"></tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="listaUbicazioni d-none" id="listaUbicazioni">
+			<div class="listaUbicazioni-content">
+				<div class="row row-pers d-none" id="tabListaUb">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 900px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Articolo</th>
+                                <th>Ubicazione Scaffale</th>
+                                <th>Ubicazione Posto</th>
+                                <th>Ubicazione Note</th>
+                                <th>Qta da Prel</th>
+                                <th>Qta disp in ub (um1)</th>
+                                <th>Qta disp in ub (um2)</th>
+                                <th>Qta car in ub (um1)</th>
+                                <th>Qta car in ub (um2)</th>
+                                <th>Qta scar in ub (um1)</th>
+                                <th>Qta scar in ub (um2)</th>
+                            </thead>
+                            <tbody id="tbodyListaUb"></tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="cercaFase d-none" id="cerArticolo">
+			<div class="cercaFase-content">
+				<div class="row row-pers">
+                    <div class="col-3 col-pers">
+						<p class="p-pers">Cerca un articolo:</p>
+					</div>
+					<div class="col-7 col-pers">
+						<input type="text" id="txtCercaArticolo" class="width100perc" style="margin-bottom: 16px;" autocomplete="off"/>
+					</div>
+                    <div class="col-1 col-pers">
+                        <button class="btn btn-secondary" id="btnCercaArt">
+                            <i class="material-icons md-18">search</i>
+                        </button>
+                    </div>
+                    <div class="col-1 col-pers">
+                        <button class="btn btn-danger" id="btnCloseCercaArt">
+                            <i class="material-icons md-18">close</i>
+                        </button>
+                    </div>
+				</div>
+				<div class="row row-pers d-none" id="tabArticolo">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Codice</th>
+                                <th>Codice Cli</th>
+                                <th>Descrizione</th>
+                            </thead>
+                            <tbody id="tbodyArticolo">
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand center" href="/">Intermek</a>
+                <a id="back-btn" class="btn btn-danger">Indietro</a>
+            </div>
+        </nav>
+
+        <div class="padding-20">
+            <div class="row row-pers mb-3">
+                <div class="col-1 col-pers padding-10">
+                    <img class="anteprimaArtPianif" />
+                </div>
+                <div class="col-11 col-pers padding-10">
+                    <!-- Stati Lavorazione -->
+                    <div class="row row-pers mb-3">
+                        <div class="col-2 col-pers">
+                            <button class="btn btn-primary" id="btnStampaEtichetta">Stampa Etichetta</button>
+                        </div>
+                        <div class="col-6 col-pers center">
+                            <h3 id="title"></h3>
+                        </div>
+                        <div class="col-1 col-pers padding-2">
+                            <button class="btn width100perc" id="btnEME"><strong>EME</strong></button>
+                        </div>
+                        <div class="col-1 col-pers padding-2">
+                            <button class="btn width100perc" id="btnWIP"><strong>WIP</strong></button>
+                        </div>
+                        <div class="col-1 col-pers padding-2">
+                            <button class="btn width100perc" id="btnPAU"><strong>PAU</strong></button>
+                        </div>
+                        <div class="col-1 col-pers padding-2">
+                            <button class="btn width100perc" id="btnCOMP"><strong>COMP</strong></button>
+                        </div>
+                    </div>
+                    <!-- Tabella Info Pianificazione -->
+                    <div class="row row-pers">
+                        <div class="col col-pers">
+                            <table class="table table-bordered">
+                                <thead class="table-dark" id="theadPianif">
+                                </thead>
+                                <tbody id="tbodyPianif"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-pers">
+                <div class="col-1 col-pers center">
+                    <p style="font-size:12,5">Note di fase:</p>
+                </div>
+                <div class="col-11 col-pers">
+                    
+                        <textarea disabled id="note" class="bg-lightyellow"></textarea>
+                
+                </div>
+            </div>
+          
+            <div class="row row-pers">
+                <div class="col col-pers">
+                    <!-- Lista sezioni -->
+                    <ul class="nav nav-tabs" id="tempi-tab-list" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="task-tab" data-toggle="tab" href="#task" role="tab" aria-controls="tempi task"
+                                aria-selected="true">TEMPI TASK</a>
+                        </li>
+                        <li class="nav-item d-none" role="presentation">
+                            <a class="nav-link" id="todo-tab" data-toggle="tab" href="#todo" role="tab" aria-controls="todo"
+                                aria-selected="false">ALTRE FASI COMMESSA</a>
+                        </li>
+                        <li class="nav-item d-none" role="presentation">
+                            <a class="nav-link" id="commesse-tab" data-toggle="tab" href="#commesse" role="tab" aria-controls="commesse"
+                                aria-selected="false">ALTRE COMMESSE</a>
+                        </li>
+                        <li class="nav-item d-none" role="presentation">
+                            <a class="nav-link" id="prelievi-tab" data-toggle="tab" href="#prelievi" role="tab" aria-controls="prelievi"
+                                aria-selected="false">IMPEGNI E PRELIEVI</a>
+                        </li>
+                        <li class="nav-item d-none" role="presentation">
+                            <a class="nav-link" id="ddt-tab" data-toggle="tab" href="#ddt" role="tab" aria-controls="ddt"
+                                aria-selected="false">DDT</a>
+                        </li>
+                        <li class="nav-item d-none" role="presentation">
+                            <a class="nav-link" id="allegati-tab" data-toggle="tab" href="#allegati" role="tab" aria-controls="allegati"
+                                aria-selected="false">ALLEGATI</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="tables-tab-content">
+                        <!-- Sezione tempi -->
+                        <div class="tab-pane show active" id="task" role="tabpanel" aria-labelledby="task-tab">
+                            <div class="row row-pers mt-3">
+                                <div class="col-2 col-pers left">
+                                    <button class="btn btn-success" id="newTempo"><strong>NUOVO TEMPO</strong></button>
+                                </div>
+                                <div class="col-2 col-pers center"></div>
+                                <div class="col-4 col-pers center">
+                                    <h3>Tempi su fase registrati</h3>
+                                </div>
+                                <div class="col-2 col-pers center">
+                                    <p class="p-pers font18" id="qtaAvanz"></p>
+                                </div>
+                                <div class="col-2 col-pers center" id="qtaSca">
+                                    <p class="p-pers font18"></p>
+                                </div>
+                            </div>
+            
+                            <div class="row row-pers mt-2 d-none" id="tempifase-row">
+                                <div class="col col-pers">
+                                    <table class="table table-bordered" id="tempifase-table">
+                                        <thead class="table-dark" id="tempifase-thead"></thead>
+                                        <tbody id="tempifase-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Sezione altre fasi commessa -->
+                        <div class="tab-pane" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+                            <div class="row row-pers mt-3 mb-2">
+                                <div class="col col-pers center">
+                                    <h3>Operazioni da effettuare</h3>
+                                </div>
+                            </div>
+                            <div class="row row-pers" id="todo-row">
+                                <div class="col col-pers">
+                                    <table class="table table-bordered" id="todo-table">
+                                        <thead class="table-dark">
+                                            <th class="center">Seq.</th>
+                                            <th class="center">Seq.Piano</th>
+                                            <th class="center">Pian.</th>
+                                            <th class="center">St.Lav.</th>
+                                            <th class="center">Fase</th>
+                                            <th class="center">Cod.Art.</th>
+                                            <th class="center">Qta Comm.</th>
+                                            <th class="center">Cat.</th>
+                                            <th class="center">Tempo Tot.</th>
+                                            <th class="center">Data Inizio</th>
+                                            <th class="center">Data Cons.</th>
+                                            <th class="center">Ris. Tec.</th> 
+                                            <th class="center">Nota fase</th>
+                                        </thead>
+                                        <tbody id="todo-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sezione altre commesse -->
+                        <div class="tab-pane" id="commesse" role="tabpanel" aria-labelledby="commesse-tab">
+                            <div class="row row-pers mt-3 mb-2">
+                                <div class="col col-pers center">
+                                    <h3>Altre commesse</h3>
+                                </div>
+                            </div>
+                            <div class="row row-pers" id="commesse-row">
+                                <div class="col col-pers">
+                                    <table class="table table-bordered" id="commesse-table">
+                                        <thead class="table-dark">
+                                            <th class="center">Cod.Commessa</th>
+                                            <th class="center">Seq.Piano</th>
+                                            <th class="center">Pian.</th>
+                                            <th class="center">St.Lav.</th>
+                                            <th class="center">Fase</th>
+                                            <th class="center">Cod.Art.</th>
+                                            <th class="center">Qta Comm.</th>
+                                            <th class="center">Cat.</th>
+                                            <th class="center">Tempo Tot.</th>
+                                            <th class="center">Data Inizio</th>
+                                            <th class="center">Data Cons.</th>
+                                            <th class="center">Lav.</th>
+                                            <th class="center">Seq.</th>
+                                        </thead>
+                                        <tbody id="commesse-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Sezione prelievi -->
+                        <div class="tab-pane" id="prelievi" role="tabpanel" aria-labelledby="prelievi-tab">
+                            <div class="row row-pers mt-3 mb-2">
+                                <div class="col-1 col-pers">
+                                    
+                                </div>
+                                <div class="col-5 col-pers right">
+                                    <h3>Lista Impegni</h3>
+                                </div>
+                                <div class="col-5 col-pers left">
+                                    <i class="material-icons md-30 pointer-style" id="btnInfo">info_outline</i>
+                                </div>
+                                <div class="col-1 col-pers right">
+                                    <button class="btn btn-primary" id="btnCaricaMagazzino">Carico Magazzino</button>
+                                </div>
+                            </div>
+                            <div class="row row-pers mb-3" id="prelievi-row">
+                                <div class="col col-pers">
+                                    <table class="table table-bordered" id="prelievi-table">
+                                        <thead class="table-dark">
+                                            <th class="center">Pos</th>
+                                            <th class="center">Codice</th>
+                                            <th class="center">Ubicazione</th>
+                                            <th class="center">Descrizione</th>
+                                            <th class="center">UDM Art</th>
+                                            <th class="center">CAT</th>
+                                            <th class="center">T.Acquis.</th>
+                                            <th class="center">Prestito</th>
+                                            <th class="center">Cert Mat</th>
+                                            <th class="center">Giac</th>
+                                            <th class="center">Disp</th>
+                                            <th class="center">Qta Da Prel</th>
+                                            <th class="center">Qta Prel</th>
+                                            <th class="center">Qta Tot</th>
+                                            <th class="center">Qta Prod Fin</th>
+                                            <th class="center">Stato</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody id="prelievi-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers right">
+                                    <button class="btn btn-primary" id="btnAddArtComm">Aggiungi Art Impegno Commesse Attive</button>
+                                    <button class="btn btn-primary" id="btnAssociaPrelievo">Associa Prelievo</button>
+                                    <button class="btn btn-primary" id="btnScansionaQR">Scansiona QR Code</button>
+                                    <button class="btn btn-primary" id="btnAddArtDiba">Aggiungi Art Impegno + Diba</button>
+                                    <button class="btn btn-primary" id="btnAddArt">Aggiungi Art Impegno</button>
+                                    <button class="btn btn-primary" id="prelevaTutto">Preleva Tutto</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sezione ddt -->
+                        <div class="tab-pane" id="ddt" role="tabpanel" aria-labelledby="ddt-tab">
+                            <div class="row row-pers mt-3">
+                                <div class="col-3 col-pers">
+                                    <button class="btn btn-primary" id="btnNuovoDDT"><strong>NUOVO DDT</strong></button>
+                                    <button class="btn btn-primary" id="btnAggiungiRigaDDT"><strong>Aggiungi a DDT selezionato</strong></button>
+                                </div>
+                                <div class="col-6 col-pers center">
+                                    <h3>Lista DDT aperti</h3>
+                                </div>
+                                <div class="col-3 col-pers"></div>
+                            </div>
+
+                            <div class="row row-pers mt-3">
+                                <div class="col col-pers">
+                                    <div id="gridContainer"></div>
+                                </div>
+                            </div>
+
+                            <div class="row row-pers mt-3">
+                                <div class="col col-pers">
+                                    <div id="gridContainerRighe"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sezione allegati -->
+                        <div class="tab-pane" id="allegati" role="tabpanel" aria-labelledby="allegati-tab">
+                            <div class="row row-pers mt-3">
+                                <div class="col col-pers left">
+                                    <div id="allegatiMenu" class="btn-group" role="group" class="dropdownMenuLink"></div>
+                                </div>
+                                <!--
+                                    <div class="col col-pers right">
+                                        <button id="btnCaricaFile" class="btn btn-primary">Carica File</button>
+                                        <button class="btn btn-warning" id="btnEstensioni">Lista Estensioni</button>
+                                    </div>
+                                -->
+                            </div>
+
+                            <div id="tabellaAllegati" class="d-none">
+                                <div class="row row-pers mt-3">
+                                    <div class="col col-pers center">
+                                        <h3 id="titleAll"></h3>
+                                    </div>
+                                </div>
+    
+                                <div class="row row-pers mt-3">
+                                    <div class="col col-pers">
+                                        <table class="table table-bordered" id="tableAllegati">
+                                            <thead class="table-dark">
+                                                <th class="center" style="width: 200px;">Anteprima</th>
+                                                <th class="center" style="width: 600px;">Nome</th>
+                                                <th class="center" style="width: 400px;">Revisione</th>
+                                                <th class="center" style="width: 100px;">Blocco</th>
+                                                <th class="center">Note</th>
+                                                <th style="width: 50px;"></th>
+                                            </thead>
+                                            <tbody id="tbodyAllegati"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="caricaFile" class="d-none">
+                                <div class="row justify-content-center mt-3 mb-3">
+                                    <div class="col-10">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-12">
+                                                        <h3>Carica un nuovo documento</h3>
+                                                    </div>
+                                                    <div class="col-12 mb-2">
+                                                        <input type="file" accept="image/*;capture=camera" id="upload-file" class="form-control">
+                                                    </div>
+                                                    <div class="col-12 mb-2">
+                                                        <select class="form-select" id="upload-type-select">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-outline-primary w-50" id="upload-btn">Carica</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center mt-3 mb-3">
+                                    <div class="col-10">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-12">
+                                                        <h3>Carica un nuovo URL</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-1"></div>
+                                                    <div class="col-2 left">
+                                                        <p class="p-pers">URL:</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input type="text" class="width100perc" id="upload-url"/>
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                </div>
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-1"></div>
+                                                    <div class="col-2 left">
+                                                        <p class="p-pers">Tipo:</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <select class="form-select" id="upload-type-selectURL"></select>
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                </div>
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-1"></div>
+                                                    <div class="col-2 left">
+                                                        <p class="p-pers">Nome file:</p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" class="width100perc" id="upload-name"/>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <p class="p-pers">Rev:</p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <input type="text" class="width100perc" id="upload-revisione"/>
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                </div>
+                                                <div class="row text-center mb-2">
+                                                    <div class="col-1"></div>
+                                                    <div class="col-2">
+                                                        <p class="p-pers">Note:</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input type="text" class="width100perc" id="upload-note"/>
+                                                    </div>
+                                                    <div class="col-1"></div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-outline-primary w-50" id="upload-btnURL">Carica</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+        <script src="js/IMK_utils.js"></script>
+        <script src="js/IMK_pianificazione.js"></script>
+    </body>
+</html>

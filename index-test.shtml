@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-Equiv="Cache-Control" Content="no-cache">
+    <meta http-Equiv="Pragma" Content="no-cache">
+    <meta http-Equiv="Expires" Content="0">
+
+    <link rel="icon" href="/images/new_logo.png" />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+    <link href="../css/cool.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+
+
+    <title id="titolo_tab">Test-Index</title>
+</head>
+
+<div id="main">
+
+    <nav class="navbar navbar-dark bg-dark" style="height: 88px;">
+        <div class="row">
+            <div class="col-2">
+                <button type="button" id="btnMenu" class="btn btn-dark" style="width: 100px; height: 50px;"
+                    onclick="openNav()">
+                    <strong style="font-size: 2em; font-family: 'Times New Roman', Times, serif;">&#9776;
+                    </strong>
+                </button>
+            </div>
+            <div class="col-1"></div>
+
+            <div class="col-1"></div>
+            <div class="col-3">
+                <input type="text" class="width100perc height100perc" id="txtRicerca" autocomplete="off"
+                    onkeydown="RicercaTasto(event)" placeholder="Scrivi qua per fare una ricerca"
+                    style="font-size: 1.5em" />
+            </div>
+            <div class="col-2">
+                <button class="btn btn-success" style="font-size: 1.5em" id="btnCerca">Cerca</button>
+            </div>
+            <div class="col-3">
+                <div class="col-1"><img src="imgs/new_logo.png" style="width: 50px; height: 50px;">
+                </div>
+            </div>
+    </nav>
+
+    <body>
+
+        <nav class="navbarFooter">
+            <div class="card large-card">
+                <div class="card-body" style="display: flex; justify-content: center;">
+                    <h2><b>GESTIONE</b></h2>
+                </div>
+                <div class="flex-container">
+                    <div class="card small-card">
+                        <a href="https://4d.intermek.com/contenitoreFasiCicli.shtml" target="_blank">
+                            <div class="card-body">
+                                <svg>
+                                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                </svg>
+                                <h5>Contenitore Fasi</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="card small-card">
+                    <a href="https://4d.intermek.com/newArt.shtml" target="_blank">
+                        <div class="card-body">
+                            <svg>
+                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                            </svg>
+                            <h5>Nuovo Articolo</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="card small-card">
+                <a href="https://4d.intermek.com/listaRDA.shtml" target="_blank">
+                    <div class="card-body">
+                        <svg>
+                            <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                        </svg>
+                        <h5>RDA</h5>
+                </a>
+            </div>
+</div>
+<div class="card small-card">
+    <a href="https://4d.intermek.com/listaArticoli.shtml" target="_blank">
+        <div class="card-body">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            <h5>Articoli</h5>
+    </a>
+</div>
+</div>
+<div class="card small-card">
+    <div class="card-body">
+        <a href="https://4d.intermek.com/listaOfferte.shtml" target="_blank">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            <h5>Offerte</h5>
+        </a>
+    </div>
+</div>
+<div class="card small-card">
+    <a href="https://4d.intermek.com/OEE.shtml" target="_blank">
+        <div class="card-body">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            <h5>OEE</h5>
+    </a>
+</div>
+</div>
+</div>
+</div>
+<div class="card large-card">
+    <div class="card-body">
+        <h2><b>4.0</h2></b>
+    </div>
+    <div class="flex-container">
+        <div class="card small-card">
+            <a href="https://4d.intermek.com/MTConnect.shtml">
+                <div class="card-body">
+                    <svg>
+                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                    </svg>
+                    <h5>Mt - Connect</h5>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="card large-card">
+    <div class="card-body">
+        <h2><b>ANAGRAFICHE & RISORSE</h2></b>
+    </div>
+    <div class="flex-container">
+        <div class="card small-card">
+            <a href="https://4d.intermek.com/listaContatti.shtml">
+                <div class="card-body">
+                    <svg>
+                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                    </svg>
+                    <h5>Gestione e Contatti</h5>
+            </a>
+        </div>
+    </div>
+    <div class="card small-card">
+        <a href="https://4d.intermek.com/anagCliFor.shtml">
+            <div class="card-body">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Anagrafica clienti</h5>
+        </a>
+    </div>
+</div>
+<div class="card small-card">
+    <a href="https://4d.intermek.com/Pers_Anag.shtml">
+        <div class="card-body">
+            <svg>
+                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+            </svg>
+            <h5>Anagrafica Persone</h5>
+    </a>
+</div>
+</div>
+</div>
+</div>
+
+
+</nav>
+
+
+<div id="homeIndex" class="background-content" style="margin-top: 65px; margin-bottom: 60px;">
+    <div class="bounce"><!-- bounce sets distance and positizon in the page-->
+
+        <img class="letter" width="100px" height="100px" src="/images/new_logo.png"><img>
+        <span class="letter">INTERMEK</span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="animate-charcter">CONSULTA IL MENU PER ACCEDERE ALL'AREA DI TUO INTERESSE</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbarPaginaTest">
+
+    <div class="card large-card">
+        <div class="card-body">
+            <h2><b>PAGINA TEST</h2></b>
+        </div>
+        <div class="flex-container">
+            <div class="card small-card">
+                <div class="card-body">
+                    <svg>
+                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                    </svg>
+                    <h5>Tempi x Macchina</h5>
+                </div>
+            </div>
+            <div class="card small-card">
+                <a href="https://4d.intermek.com/test2.shtml">
+                    <div class="card-body">
+                        <svg>
+                            <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                        </svg>
+                        <h5>Update Articolo</h5>
+                </a>
+            </div>
+        </div>
+        <div class="card small-card">
+            <a href="https://4d.intermek.com/test4.shtml">
+                <div class="card-body">
+                    <svg>
+                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                    </svg>
+                    <h5>New Prelievi</h5>
+            </a>
+        </div>
+    </div>
+    <div class="card small-card">
+        <div class="card-body">
+            <a href="https://4d.intermek.com/timeLineComm.shtml" target="_blank">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Time Line Commesse</h5>
+            </a>
+        </div>
+    </div>
+    <div class="card small-card">
+        <a href="https://4d.intermek.com/listaPresenze.shtml" target="_blank">
+            <div class="card-body">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Presenze / Permessi</h5>
+        </a>
+    </div>
+    </div>
+    <div class="card small-card">
+        <a href="https://4d.intermek.com/TESTlistaFasiMacchina.shtml">
+            <div class="card-body">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Lista Macchina Semplice</h5>
+        </a>
+    </div>
+    </div>
+    <div class="card small-card">
+        <a href="https://4d.intermek.com/TEST5.shtml">
+            <div class="card-body">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Translate Document</h5>
+        </a>
+    </div>
+    </div>
+    <div class="card small-card">
+
+        <a href="https://4d.intermek.com/tempiMacchinaLarge.shtml">
+            <div class="card-body">
+                <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <h5>Test Tempi Macchina</h5>
+        </a>
+    </div>
+    </div>
+    </div>
+    </div>
+</nav>
+
+<div id="SideNavIndex" class="SideNavIndex">
+
+    <div style="display: flex; align-items: center; justify-content: space-between">
+        <a href="/scanpresenze.shtml" class="btn white sottoMenu" style="flex-grow: 1; margin-left: 5px">
+            <h3>Scan Presenze</h3>
+        </a>
+        <button style="border-color:transparent;background-color:transparent;color:white; font-size: 40px;"
+            onclick="closeNav()" id="SideNavIndex">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+
+
+    <a class="d-flex align-items-right p-0 m-0 link-dark text-decoration-none "></a>
+
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+        <li class="white mb-1">
+
+            <br>
+            <button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#list-collapse"
+                aria-expanded="true" style="font-size: x-large;">
+                Principali
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <div style="padding-top: 5px;" class="white collapse show" id="list-collapse">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1">
+
+                    <li>
+                        <a href="/listaOrdini.shtml" target="_blank" class="btn cyan sottoMenuBlu"
+                            style="font-size: x-large;">
+                            Lista Ordini
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaddt.shtml" target="_blank" class="btn cyan sottoMenuBlu"
+                            style="font-size: x-large;">
+                            Lista DDT
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaCommesse.shtml" target="_blank" class="btn purpleYe sottoMenuPurple"
+                            style="font-size: x-large;">
+                            Lista Commesse
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaCommesseStorico.shtml" target="_blank" class="btn purpleYe sottoMenuPurple"
+                            style="font-size: x-large;">
+                            Storico Commesse
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaFasi.shtml" target="_blank" class="btn orangeYe sottoMenuOrange"
+                            style="font-size: x-large;">
+                            Lista Fasi X Macchine
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaFasiPersone.shtml" target="_blank" class="btn orangeYe sottoMenuOrange"
+                            style="font-size: x-large;">
+                            Lista Fasi X Persone
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/menuCluster.shtml" target="_blank" class="btn greenYe sottoMenuGreen"
+                            style="font-size: x-large;">
+                            Menu Cluster
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhSEHaLgXKnAHfaEEZ9Hn8xvOlAak69Re7xcwbmvkloZotyQ/viewform"
+                            target="_blank" class="btn yellowYe sottoMenuYellow" style="font-size: x-large;">
+                            Permessi
+                            <i class="bi bi-phone"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/segnalazioni.shtml" target="_blank" class="btn redYe sottoMenuRed"
+                            style="font-size: x-large;">
+                            Segnalazioni
+                            <i class="bi bi-phone"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+                data-bs-target="#test-collapse-options" aria-expanded="true" style="font-size: x-large;">
+                Altre opzioni
+                <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div style="padding-top: 20px;" class="white collapse " id="test-collapse-options">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li>
+                        <a href="/menuCluster.shtml" target="_blank" class="btn white sottoMenu"
+                            style="font-size: x-large;">
+                            Menu Cluster
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://10.10.25.2" target="_blank" class="btn greenYe sottoMenuGreen"
+                            style="font-size: x-large;">
+                            Portale Clienti
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/listaPriorita.shtml" target="_blank" class="btn white sottoMenu"
+                            style="font-size: x-large;">
+                            Lista Priorità
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+
+    <!-- FOOTER DELLA BARRA LATERALE CON USER LOG style="background-color:transparent; border-color:trasparent;"-->
+
+    <div class="dropdown border-top ">
+        <br>
+        <div class="row">
+
+            <div class="col-1 small">
+                <img src="/images/user_white.png" width="50" height="50" class="rounded-circle">
+            </div>
+            <div class="col-7 pl-5">
+                <p class="white pr-0 pb-0 mb-0">Utente loggato: </p>
+                <p class="white pr-0 pt-0 nt-0" id="user-logged"></p>
+            </div>
+            <div class="col-3 pb-4 pr-6 " style="vertical-align: middle;">
+                <div class="row">
+                    <div class="col-4 ">
+                        <form action="/4DACTION/www_start_post" method="POST">
+                            <button title="Logout" id="logFuckingOut" class="btn btn-danger btn-sm"
+                                style="width: auto; margin-left: -30px" ; type="submit">
+                                <!--	<strong>LOGOUT</strong>-->
+                                <i class="bi bi-x-octagon"></i>
+
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+
+                        <button title="Le mie fasi" class="btn btn-success btn-sm tempi-row" id="scorciaoia_op_pers"
+                            style="width: auto; margin-left: 4px; margin-left: -20px;">
+                            <i class="bi bi-list-check"></i>
+
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button title="I miei tempi" class="btn btn-success btn-sm tempi-row" id="scorciaoia_tempi_task"
+                            style="width: auto; margin-left: -10px;">
+                            <i class="bi bi-clock"></i>
+
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: rgba(130, 151, 255, 0.285);
+        font-family: 'Times New Roman', Times, serif;
+        overflow-x: hidden;
+    }
+
+    .navbarPaginaTest {
+        display: flex;
+        justify-content: center;
+        margin-left: 25px;
+        gap: 10px;
+        /* Optional: space between the cards */
+        padding: 10px;
+        /* Optional: space around the navbar */
+    }
+
+    .navbarFooter {
+        display: flex;
+        justify-content: center;
+        margin-left: 25px;
+        margin-top: 25px;
+        gap: 10px;
+        /* Optional: space between the cards */
+        padding: 10px;
+        /* Optional: space around the navbar */
+    }
+
+
+    .card {
+        border: 1px solid #696969;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #ffffff9f;
+    }
+
+    div.card-body {
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    div.flex-container {
+        display: flex;
+        gap: 10px;
+        height: 70px;
+        margin-top: 10px;
+    }
+
+    .navbar.navbar-dark.bg-dark {
+        height: 110px;
+    }
+
+    .large-card {
+        width: auto;
+        border: black;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        background-color: #9798b18d;
+    }
+
+    .a.no-effect {
+        text-decoration: none;
+        /* Rimuove la sottolineatura */
+        color: inherit;
+        /* Mantiene il colore del testo circostante */
+    }
+
+    .a.no-effect:hover {
+        color: black;
+        text-decoration: none;
+        zoom: 1;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .data-container {
+        /*background:#ffebee;*/
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #button {
+        margin-right: 80px;
+        margin-left: 80px;
+        margin-top: 15px;
+    }
+
+    .small-card {
+        svg {
+            height: 68px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1.5px;
+            border-radius: 5%;
+        }
+
+        rect {
+            fill: none;
+            stroke: #000000;
+            stroke-width: 4;
+            stroke-dasharray: 422, 0;
+            transition: all 1s linear;
+        }
+    }
+
+    .small-card:hover {
+        font-weight: 900;
+        letter-spacing: 0px;
+
+        rect {
+            stroke-width: 5;
+            stroke-dasharray: 15, 310;
+            stroke-dashoffset: 48;
+            transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: larger;
+        padding: 0px;
+    }
+
+    .h5-hover {
+        color: black;
+        transition: color 0.3s ease;
+        /* Transizione per rendere l'effetto più fluido */
+    }
+
+    /* Stile applicato quando l'elemento è in stato di hover */
+    .h5-hover:hover {
+        color: red;
+    }
+
+    .SideNavIndex {
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #343A40;
+        overflow-x: hidden;
+        transition: 0.3s;
+        z-index: 999;
+        padding-top: 22px;
+    }
+
+    .SideNavIndex .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        color: #818181;
+
+    }
+</style>
+
+
+
+
+<!--  CDN per JQUERY-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<!--  CDN per BOOTSTRAP-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+
+<!--  CDN per AXIOS CHIAMATE-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+    integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+    crossorigin="anonymous"></script>
+
+<!-- DevExpress CDN per EXPORT EXCEL-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+<!-- DevExpress.AspNet.Data 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-aspnet-data/2.8.6/dx.aspnet.data.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+<!-- ALTRO -->
+<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+<script src="js/IMK_utils.js"></script>
+<script src="js/index-test.js"></script>
+</body>
+
+</html>

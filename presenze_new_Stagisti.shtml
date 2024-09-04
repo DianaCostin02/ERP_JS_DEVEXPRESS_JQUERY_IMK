@@ -1,0 +1,110 @@
+<!-- file.html.shtml -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="must-revalidate" />
+
+  <title>Controllo presenze</title>
+
+  <link rel="icon"	href="/images/new_logo.png"	/>
+
+  	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/presenze.css">
+  <link rel="stylesheet" href="css/main.css" />
+  
+
+</head>
+
+
+
+
+
+<body class="display-b">
+
+ <!--<div id="main">
+    <nav class="navbar navbar-dark bgcolored pt-0 mt-0">
+      <div class="row row-pers">
+        <div class="col col-pers center">
+          <div class="logo">
+            <img src="https://servolanabasket.it/wp-content/uploads/2019/10/logo_intermek_cordenons.png">
+          </div>
+          <a class="navbar-brand font2em" href="/">Intermek </a>
+        </div>
+      </div>
+    </nav>
+  </div>-->
+
+
+  <div class="logo">
+    <img src="intermek_payoff_colori.png" alt="Logo">
+  </div>
+  
+  <div class="containerScan center mt-1">
+    <a id="btn-scan-qr" class="btn btn-dark">Scansiona</a>
+    <canvas hidden="" id="qr-canvas"></canvas>
+
+    <div id="qr-result" class="mt-2" hidden="">
+      <div class="row row-pers">
+        <div class="col col-pers center">
+          <p id="outputData"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="main">
+
+    <!-- Elemento per il messaggio di conferma -->
+    <p id="message"></p>
+  </div>
+  <div class="main">
+   <!-- <form method="post" onsubmit="return submitForm()">-->
+      <label for="code">Scannerizza o inserisci il codice:</label>
+      <input class="" type="text" id="code" name="code" pattern="\d{5}" required autocomplete="off" oninput="verificaCodice()" >
+      <h3 id="nomeCognome"></h3>
+      <br><br>
+      <label>Scegli un'opzione:</label>
+      <button class="btnEnter blurred-button disabled" type="button" id="ENTRATA_NORMALE">ENTRATA NORMALE <span class="material-icons">login</span></button>
+      <button class="btnPermix blurred-button disabled" type="button" id="ENTRATA_IN_RITARDO_CON_PERMESSO">ENTRATA IN RITARDO CON PERMESSO <span class="material-icons">task</span></button>
+      <button class="btnPau blurred-button disabled" type="button" id="RIENTRO_PAUSA">RIENTRO PAUSA <span class="material-icons">timer_off</span></button>
+      <br>
+      <button class="btnEsc blurred-button disabled" type="button" id="USCITA_NORMALE">USCITA NORMALE <span class="material-icons">logout</span></button>
+      <button class="btnPermix blurred-button disabled" type="button" id="USCITA_ANTICIPATA_CON_PERMESSO">USCITA ANTICIPATA CON PERMESSO <span class="material-icons">task</span></button>
+      <button class="btnPau blurred-button disabled" type="button" id="USCITA_IN_PAUSA">USCITA IN PAUSA <span class="material-icons">restaurant</span></button>
+      <br>
+    <!--</form>-->
+  </div>
+
+		<!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+
+        <script src="lib/jquery-3.5.1.slim.min.js"></script>
+		    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+        <script src="IMK_utils.js"></script>
+        <script src="presenza.js"></script>
+		    <!--<script src="IMK_scanQR.js"></script>-->
+
+</body>
+
+</html>

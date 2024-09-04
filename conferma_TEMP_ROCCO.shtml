@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+            crossorigin="anonymous"
+        />
+
+        <link href="../css/main.css" rel="stylesheet" />
+            
+        <!-- Popper.js first, then Bootstrap JS -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous">
+        </script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+			integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous">
+        </script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+			integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous">
+        </script>
+
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+		<script src="js/IMK_utils.js"></script>
+		<script src="js/conferma.js"></script>
+
+        <title>Intermek</title>
+    </head>
+
+    <body>
+        <div class="font13 padding-20">
+            <div class="row row-pers">
+                <div class="col-8 col-pers">
+                    <!-- Anagrafica del cliente -->
+                    <div class="row row-pers mb-3">
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong>Spett.le</strong></p>
+                            <p class="p-pers OA_ragsoc"></p>
+                        </div>
+                    </div>
+                    <!-- Indirizzo del cliente -->
+                    <div class="row row-pers mb-3">
+                        <div class="col col-pers left">
+                            <p class="p-pers OA_indirizzo"></p>
+                            <p class="p-pers OA_citta"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-pers right">
+                    <img width="250" height="100" src="./images/Logo_Intermek.png" alt="...">
+                </div>
+            </div>
+            <!-- Testata Conferma d'ordine -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>ORDINE DI ACQUISTO</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="OA_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="OA_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers">1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers OA_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers OA_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers OA_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.F.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers OA_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers OA_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers OA_pagamento"></p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Agente</p>
+                        </div>
+                        <div class="col col-pers font12">
+                            <p class="p-pers"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers OA_bancaAppoggio"></p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Listino</p>
+                        </div>
+                        <div class="col col-pers font12">
+                            <p class="p-pers OA_listino"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers OA_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers OA_cab"></p>
+                        </div>
+                        <div class="col-5 col-pers"></div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Op.</p>
+                        </div>
+                        <div class="col col-pers font12">
+                            <p class="p-pers OA_operatore"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers OA_iban"></p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col col-pers font12">
+                            <p class="p-pers OA_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part" style="height: 50px;">
+                <div class="col-6 col-pers">
+                    <p class="p-pers OA_riferimento"></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers">Note</p>
+                </div>
+                <div class="col-5 col-pers">
+                    <p class="p-pers OA_note"></p>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-small" style=" height: 200px;">
+                <thead class="font10">
+                    <tr>
+                        <th scope="col">Pos.</th>
+                        <th scope="col">Codice Intermek</th>
+                        <th scope="col">Descr</th>
+                        <th scope="col">Cod Forn</th>
+                        <!--<th scope="col">Note</th>-->
+                        <th scope="col">UM</th>
+                        <th scope="col">Qta UM</th>
+                        <th scope="col">Qta</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">% Sc.1</th>
+                        <th scope="col">% Sc.2</th>
+                        <th scope="col">Importo</th>
+                        <th scope="col">Iva</th>
+                        <th scope="col">Cons.</th>
+                    </tr>
+                </thead>
+                <tbody class="font10" id="tabRigheOrdine"></tbody>
+            </table>
+            <!-- Footer della Conferma d'ordine -->
+            <div class="row row-pers font10 border-full">
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>Causale</strong></p>
+                </div>
+                <div class="col-3 col-pers font12 border-r">
+                    <p class="p-pers OA_causale"></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>Porto</strong></p>
+                </div>
+                <div class="col-3 col-pers font12 border-r">
+                    <p class="p-pers OA_porto"></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>P. colli</strong></p>
+                </div>
+                <div class="col-1 col-pers border-r">
+                    <p class="p-pers OA_pcolli"></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>N. colli</strong></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers OA_ncolli"></p>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part margin-bot-small">
+                <div class="col-2 col-pers">
+                    <p class="p-pers"><strong>Trasporto a cura del</strong></p>
+                </div>
+                <div class="col-10 col-pers font12">
+                    <p class="p-pers OA_trasportoCura"></p>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-full" style="background-color: lightgray;">
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Totale Merce</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Sconto ch. %</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Sconto valore</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Totale Netto</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Bolli</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Spese Bancarie</strong></p>
+                </div>
+                <div class="col col-pers center border-r">
+                    <p class="p-pers"><strong>Trasporto</strong></p>
+                </div>
+                <div class="col col-pers center">
+                    <p class="p-pers"><strong>Imballo</strong></p>
+                </div>
+            </div>
+            <div class="row row-pers font12 border-part">
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_totMerce"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_scontoCH"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_scontoVal"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_totNetto"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_bolli"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_speseBancarie"></p>
+                </div>
+                <div class="col col-pers border-r right">
+                    <p class="p-pers OA_trasporto"></p>
+                </div>
+                <div class="col col-pers right">
+                    <p class="p-pers OA_imballo"></p>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-2 col-pers border-r">
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Imponibile</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imponibile_1"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imponibile_2"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imponibile_3"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imponibile_4"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 col-pers border-r">
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Cod. Iva</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_ivaImp_1"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_ivaImp_2"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_ivaImp_3"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_ivaImp_4"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers border-r">
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Imposta/Titolo esenz.</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imposta_1"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imposta_2"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imposta_3"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_imposta_4"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Tot.Imponibile</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12 border-b">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_totImponibile"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Totale imposta</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12 border-b">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_totImposta">.</p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font10">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Contributo CO.NA.I. assolto ove dovuto</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-pers">
+                    <div class="row row-pers border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Acconto</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font12 border-b">
+                        <div class="col col-pers right">
+                            <p class="p-pers OA_acconto">.</p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font14 border-b" style="background-color: lightgray;">
+                        <div class="col col-pers center">
+                            <p class="p-pers"><strong>Totale documento</strong></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers font14">
+                        <div class="col col-pers right">
+                            <p class="p-pers"><strong class="OA_totale"></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part" style="height: 50px;">
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>Condizioni di vendita</strong></p>
+                </div>
+                <div class="col-5 col-pers border-r">
+                    <p class="p-pers OA_condVendita"></p>
+                </div>
+                <div class="col-1 col-pers">
+                    <p class="p-pers"><strong>Note</strong></p>
+                </div>
+                <div class="col-5 col-pers">
+                    <p class="p-pers OA_note"></p>
+                </div>
+            </div>
+
+            <div class="row row-pers mt-2">
+                <div class="col-10 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Intermek S.R.L.</p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">www.intermek.com</p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers">
+                            <p class="p-pers">Indirizzo: Via Amman, 45</p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Email: info@intermek.com</p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Capitale Sociale: 50.000,00€</p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers">
+                            <p class="p-pers">Cordenons, PN</p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">Telefono: +39 0434 44183</p>
+                        </div>
+                        <div class="col col-pers">
+                            <p class="p-pers">P. IVA: 01619020934</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers right">
+                    <img width="100" height="100" src="./images/logo-tuv.png" alt="...">
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-5 mb-3 no-stampa">
+            <div class="col col-pers center">
+                <button id="btnStampa" class="btn btn-success">Stampa</button>
+            </div>
+        </div>
+    </body>
+</html>

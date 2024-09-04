@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aggiornamento dati da 4D a JSON GANTT</title>
+</head>
+<body>
+  <h1>Aggiorno i dati da 4D e li carico sul foglio Google...</h1>
+  <img>images/new_logo.png</img>
+  
+  <script>
+    // Function to redirect to another page
+    function redirectToAnotherPage() {
+      window.location.href = "https://script.google.com/macros/s/AKfycbx6FFVo4fwcgKYZv5lkUzuJ0Cqmmzifsr22MCm_FDj64Z8lnSPj9ArjdWkHALI0gJ0/exec"; // Replace with the URL you want to redirect to
+    }
+
+    // Create and simulate click on an anchor element to open the first URL
+    function openFirstURL() {
+      var anchor = document.createElement("a");
+
+      anchor.href = "http://4d.intermek.com:8000/4DACTION/www_listaScores?searchRT=%7B%22searchRT%22:[60,42,14,15,45,19,35,36,92,185,188]%7D&IDCluster=49"; // Replace with the URL you want to open
+      anchor.target = "_blank"; // Open the link in a new tab
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor); // Remove the element from the DOM after click
+    }
+
+    // Wait for the first URL to load, and then redirect
+    window.onload = function() {
+      setTimeout(redirectToAnotherPage, 5000); // 1 minute (60,000 milliseconds)
+    };
+
+    // Initially, open the first URL
+    openFirstURL();
+  </script>
+</body>
+</html>

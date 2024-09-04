@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+    
+        <link href="../css/main.css" rel="stylesheet" />
+        <link href="../css/cool.css" rel="stylesheet" />
+    
+
+		<title>Tempi Task</title>
+    </head>
+    <body class="font18">
+        <div class="popupAlert d-none" id="popupAlert">
+            <div class="popupAlert-content">
+                <div class="row row-pers mb-2">
+                    <div class="col col-pers center">
+                        <h3 class="popupAlert-title"></h3>
+                    </div>
+                </div>
+                <div class="row row-pers mb-2">
+                    <div class="col col-pers center">
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers popupAlert-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-pers">
+                    <div class="col col-pers center">
+                        <button class="btn btn-secondary" id="btnCloseAlert">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popupPotente"></div>
+          
+        <div class="cercaFase d-none" id="cerFase">
+			<div class="cercaFase-content">
+				<div class="row row-pers">
+                    <div class="col-3 col-pers">
+						<p class="p-pers">Cerca una fase:</p>
+					</div>
+					<div class="col-7 col-pers">
+						<input type="text" id="txtCercaFase" class="width100perc" style="margin-bottom: 16px;" autocomplete="off" onkeydown="RicercaTasto(event)"/>
+					</div>
+                    <div class="col-1 col-pers">
+                        <button class="btn btn-secondary" id="btnCerca">
+                            <i class="material-icons md-18">search</i>
+                        </button>
+                    </div>
+                    <div class="col-1 col-pers">
+                        <button class="btn red" id="closeCercaFase">
+                           <strong style="color:white">X</strong> 
+                        </button>
+                    </div>
+				</div>
+				<div class="row row-pers d-none" id="tabFasiCausali">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Causale</th>
+                            </thead>
+                            <tbody id="tbodyFasiCausali">
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="cercaFase d-none" id="cerPers">
+			<div class="cercaFase-content">
+				<div class="row row-pers">
+                    <div class="col-3 col-pers">
+						<p class="p-pers">Cerca una persona:</p>
+					</div>
+					<div class="col-7 col-pers">
+						<input type="text" id="txtCercaPers" class="width100perc" style="margin-bottom: 16px;" autocomplete="off"/>
+					</div>
+                    <div class="col-2 col-pers">
+                        <button class="btn btn-secondary" id="btnCercaPers">
+                            <i class="material-icons md-18">search</i>
+                        </button>
+                    </div>
+				</div>
+				<div class="row row-pers d-none" id="tabPersone">
+					<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+						<table class="table table-bordered">
+                            <thead class="table-dark">
+                                <th>Nominativo</th>
+                            </thead>
+                            <tbody id="tbodyPersone">
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="row row-pers ">
+                <div class="col-4">
+                    <a class="navbar-brand" href="/">Intermek</a>
+                </div>
+                <div class="col-8">
+                    <h2 id="title" class="white"></h2>
+                </div>
+                 
+              <!--  <a id="back-btn" class="btn btn-danger">Indietro</a>-->
+            </div>
+        </nav>
+    <div class="row row-pers mb-3 mt-3">
+        <div class="col-1 col-pers"></div>
+            <div class="col-5 col-pers pl-5">
+             
+                    <div class="row row-pers mb-1">                         
+                        <div class="col-6 col-pers">
+                            <input type="text" id="causaleTempo" class="font20 center width100perc" disabled>
+                        </div>  
+                        <div class="col-1 col-pers ">
+                        </div>   
+                        <div class="col-5 col-pers ">
+                            <button class="btn btn-primary font20" id="btnSearchFaseDiretta"><strong>CAMBIA CAUSALE</strong></button>
+                        </div>                   
+                    </div>
+                   
+                  <!--  <div class="row row-pers mb-3">
+                        <div class="col-5 col-pers">
+                            <p class="p-pers">Operazione:</p>
+                        </div>
+                        <div class="col-7 col-pers">
+                            <input type="text" id="operazioneTempo" class="center width100perc" disabled>
+                        </div>
+                    </div>-->
+             
+                <fieldset class="cyanLegend">
+                    <div class="row row-pers mb-3">
+                        <div class="col-5 col-pers">
+                            <p class="p-pers">QTA COMMESSA:</p>
+                        </div>
+                        <div class="col-7 col-pers">
+                            <input type="text" id="qtaCommessa" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-5 col-pers">
+                            <p class="p-pers">Qta Producibile da Prelievi:</p>
+                        </div>
+                        <div class="col-7 col-pers">
+                            <input type="text" id="qtaMaxDaPrelievo" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-5 col-pers">
+                            <p class="p-pers">Qta Fase Attuale:</p>
+                        </div>
+                        <div class="col-7 col-pers">
+                            <input type="text" id="qtaAvanz" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>                 
+                   
+                    <div class="row row-pers mb-3">
+                        <div class="col-5 col-pers">
+                            <p class="p-pers">Qta Dichiarata Ultimo RUN:</p>
+                        </div>
+                        <div class="col-7 col-pers">
+                            <input type="text" id="qtaMax" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>
+                </fieldset>
+             <!--   
+                <div class="row row-pers d-none mb-3 divProduzione">
+                    <div class="col-5 col-pers">
+                        <p class="p-pers">Pezzi Versati:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="text" id="pzVers" class="font20 center width100perc" disabled>
+                    </div>
+                </div> -->
+                <div class="row row-pers mb-3">
+                    <div class="col-5 col-pers">
+                        <p class="p-pers">% Avanz Globale Fase:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="text" id="percAvanzGlobFase" class="font20 center width100perc" disabled>
+                    </div>
+                </div>
+                <div class="row row-pers mb-3">
+                    <div class="col-5 col-pers">
+                        <p class="p-pers">FERMO MACCHINA:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                       <div id="selectFermi"></div>
+                    </div>
+                </div>
+               
+                
+                <div class="row row-pers mb-3">
+                    <div class="col col-pers center">
+                        <textarea id="commentoTempo" placeholder="Lascia un commento..." class="bg-lightyellow"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-pers"></div>
+           
+           
+            <div class="col-4 col-pers">
+                <div class="row row-pers mb-3">
+                    <div class="col-4 col-pers">
+                        <p class="p-pers"><a  style="text-decoration: none;"class="color-red">* </a>Operatore:</p>
+                    </div>
+                    <div class="col-8 col-pers">
+                        <select id="nomeOperatore" class="font20 width100perc bg-lightyellow"></select>
+                    </div>
+                </div>
+                <fieldset>
+                   
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Tempo Residuo:</p>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <input type="text" id="tempoRes" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> Data: </p>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <input type="date" id="dataInizioTempo" class="font20 right width100perc bg-lightyellow">
+                        </div>
+                    </div>                  
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> Ora Inizio: </p>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <input type="time" id="oraInizioTempo" class="font20 right width100perc bg-lightyellow">
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> Ora Fine:</p>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <input type="time" id="oraFineTempo" class="font20 right width100perc bg-lightyellow">
+                        </div>
+                    </div>
+                    
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Tempo:</p>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <input type="text" id="tempoEff" class="font20 center width100perc" disabled>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row row-pers d-none mb-3 divServizio">
+                    <div class="col-7 col-pers">
+                        <p class="p-pers">% Avanzamento Calcolata:</p>
+                    </div>
+                    <div class="col-5 col-pers">
+                        <input type="text" id="percAvanzCalc" class="font20 center width100perc" disabled>
+                    </div>
+                </div>
+                <div class="row row-pers d-none mb-3 divServizio pt-3">
+                    <div class="col-6 col-pers">
+                        <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> % Avanzamento: </p>
+                    </div>
+                    <div class="col-6 col-pers">
+                        <input type="number" id="percAvanz" value="0" min="0" max="100" class="font20 bg-lightyellow center width100perc">
+                    </div>
+                </div>
+                <div class="row row-pers d-none mb-3 divProduzione">
+                    <div class="col-4 col-pers">
+                        <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> Pezzi Prodotti: </p>
+                    </div>
+                    <div class="col-8 col-pers">
+                        <input type="number" id="pzProd" value="0" min="0" class="font20 bg-lightyellow center width100perc">
+                    </div>
+                </div>
+                <div class="row row-pers d-none mb-3 divProduzione">
+                    <div class="col-4 col-pers">
+                        <p class="p-pers"><a  style="text-decoration: none;"class="color-red">*</a> Pezzi Scarti: </p>
+                    </div>
+                    <div class="col-8 col-pers">
+                        <input type="number" id="pzScar" value="0" min="0" class="font20 bg-lightyellow center width100perc">
+                    </div>
+                </div>
+                <div class="row row-pers  mb-3">
+                    <div class="col-5 col-pers right">
+                        <button class="btn btn-success font28" id="btnSalvaTempo"><strong>SALVA</strong></button>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-5 col-pers left">
+                          <button class="btn btn-danger font28" id="btnCancTempo"><strong>ANNULLA</strong></button> 
+                    </div>
+                    
+                </div>
+              
+                    <p style="color: red;">I campi contrassegnati da * sono obbligatori</p>
+                
+            </div>
+            <div class="col-1 col-pers"></div>
+        </div>
+
+        <div class="d-none" id="divFormazione">
+            <div class="row row-pers">
+                <div class="col-1 col-pers"></div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers mb-3">
+                        <div class="col-6 col-pers">
+                            <div class="row row-pers">
+                                <div class="col-4 col-pers">
+                                    <label for="chkTutor">Tutor</label>
+                                    <input type="checkbox" id="chkTutor" name="chkTutor"/>
+                                </div>
+                                <div class="col-8 col-pers">
+                                    <p class="p-pers" id="txtTutor"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1 col-pers"></div>
+                        <div class="col-5 col-pers">
+                            <div class="row row-pers">
+                                <div class="col-4 col-pers">
+                                    <p class="p-pers">Argomento</p>
+                                </div>
+                                <div class="col-8 col-pers">
+                                    <select class="font20 width100perc" id="selArg"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-6 col-pers">
+                            <div class="row row-pers">
+                                <div class="col-4 col-pers">
+                                    <p class="p-pers">Tipologia</p>
+                                </div>
+                                <div class="col-8 col-pers">
+                                    <select class="font20 width100perc" id="selTipo"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1 col-pers"></div>
+                        <div class="col-5 col-pers">
+                            <div class="row row-pers">
+                                <div class="col-4 col-pers">
+                                    <p class="p-pers">Bando</p>
+                                </div>
+                                <div class="col-8 col-pers">
+                                    <select class="font20 width100perc" id="selBando"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers mb-3">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Intervento Formativo *</p>
+                            <button class="btn btn-primary" id="btnCopiaComm">Copia Commento</button>
+                        </div>
+                        <div class="col-8 col-pers">
+                            <textarea id="interForm" class="bg-lightyellow"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 col-pers"></div>
+                <div class="col-4 col-pers">
+                    <div class="row row-pers">
+                        <div class="col col-pers">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nominativo</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="txtID1"></td>
+                                        <td id="txtNome1"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch1">
+                                           <i class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete1">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="txtID2"></td>
+                                        <td id="txtNome2"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch2">
+                                            <i class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete2">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="txtID3"></td>
+                                        <td id="txtNome3"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch3">
+                                            <i class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete3">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="txtID4"></td>
+                                        <td id="txtNome4"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch4">
+                                            <i class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete4">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="txtID5"></td>
+                                        <td id="txtNome5"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch5">
+                                            <i class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete5">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="txtID6"></td>
+                                        <td id="txtNome6"></td>
+                                        <td style="width: 5em;"><button class="btn btn-info" id="btnSearch6">
+                                            <i  class="material-icons md-18">search</i>
+                                        </button></td>
+                                        <td style="width: 5em;"><button class="btn btn-danger" id="btnDelete6">
+                                            <i class="material-icons md-18">delete</i>
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 col-pers"></div>
+            </div>
+        </div>
+ 
+  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- DevExpress CDN per EXPORT EXCEL-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+    <script src="js/IMK_utils.js"></script>
+    <script src="js/IMK_dichiarazione.js"></script>
+    </body>
+</html>
+<style>
+    fieldset {
+      border: 1px solid #ccc; /* Stile del bordo: spessore, tipo, colore */
+      border-radius: 5px; /* Bordo arrotondato, se desiderato */
+      padding: 10px; /* Spaziatura interna dal bordo */
+      margin-bottom: 10px; /* Spaziatura inferiore per separare i fieldset */
+  
+  
+    }
+ 
+    .cyanLegend{
+        background-color: #e1eff2;
+         
+    } 
+
+    label {
+    
+        width: 120px;
+      }
+      body {
+      overflow-y: scroll; /* Aggiunge una barra di scorrimento verticale solo quando necessario */
+    }
+      legend {
+        padding: 0px;
+        font-size: 20px;
+      }
+  </style>

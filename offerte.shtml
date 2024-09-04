@@ -1,0 +1,288 @@
+<!-- AUTORE: IT
+DATA ULTIMA MODIFICA: 4/7/2024 8:34 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="must-revalidate" />
+    <link rel="icon" href="/images/new_logo.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!--PDF-->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <!-- <script src="https://unpkg.com/jspdf and https://unpkg.com/jspdf-autotable"></script> -->
+
+    <!-- DevExpress CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="./css/printDataGrid.css"  rel="stylesheet" />
+
+    <title>Doc. OFF</title>
+</head>
+
+<body id="contenuto">
+
+    <div class="font14" style="padding: 20px; ">
+        <div class="black-border">
+            <div class="row row-pers left">
+                <div class="col-4 col-pers  pt-3">
+                    <img with="375" height="75" src="./images/IMKLogoNuovo.png" alt="Image" class="centered-image">
+                </div>
+
+
+                <div class="col-4 center col-pers pt-2 ">
+
+                    <div class="">
+                        <b>
+                            <p class="p-pers">
+                            <p data-translate="19">Spettabile</p>
+                            </p>
+                            <p class="p-pers" id="txtAnagCliFor"></p>
+                        </b>
+                    </div>
+
+
+                    <div class="row row-pers left">
+                        <div class="col right">
+                            <p class="p-pers no-margin">
+                            <p id="txtGen" data-translate="17"></p>
+                            </p>
+                        </div>
+                        <div class="col left">
+                            <p class="p-pers no-margin" id="txtNomeRif"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="row row-pers ">
+                        <div class="col right ">
+                            <p class="p-pers ">
+                            <p data-translate="13">Offerta N.</p>
+                            </p>
+                        </div>
+                        <div class="col-6 left">
+                            <p class="p-pers" id="txtNumOff"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers ">
+
+                        <div class="col right ">
+                            <p class="p-pers">
+                            <p data-translate="14">Gestita da</p>
+                            </p>
+                        </div>
+                        <div class="col left ">
+                            <p class="p-pers" id="txtNomeInCarico"></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-4 right pt-2  pt-4">
+                    <img width="70" height="70 " src="./images/logo-tuv.png" alt="...">
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-4">
+            <div class="text-left mt-0 mb-0">
+             
+                <p data-translate="18">Con la presente siamo a comunicarLe la nostra miglior offerta per la fornitura
+                    dei seguenti codici</p>
+                </p>
+            </div>
+        </div>
+
+        <div id="inputButtons">
+            <select id="language-selector" class="form-select mt-0 mb-0" style="width: 100px; display: inline-block;" onchange="changeLanguage(this.value)"></div>
+                <option value="it">Italiano</option>
+                <option value="en">English</option> 
+                <option value="deu">Deutsch</option>    
+            </select>
+    
+            <button type="button" class="btn btn-light mt-0 mb-0" id="btnExpExcel">Esporta EXCEL</button>
+            <button type="button" class="btn btn-light mt-0 mb-0" id="btnExpPDF">Esporta PDF</button>
+            
+        </div>
+       
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped" id="tableData">
+                    <thead>
+                        <tr>
+                            <th data-translate="2">Pos.</th>
+                            <th data-translate="3">Disegno</th>
+                            <th data-translate="4">Descrizione</th>
+                            <th data-translate="5">Q.ta Lotto</th>
+                            <th data-translate="6">Q.ta Consegna</th>
+                            <th data-translate="7">€/pz</th>
+                            <th data-translate="8">€/lotto</th>
+                            <th data-translate="9">Lead Time(gg.lav)</th>
+                            <th data-translate="10">Note</th>
+                            <th data-translate="11">Valido Fino Al</th>
+                            <th data-translate="12">Referente</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+        
+
+        <div class="no-page-break">
+            <div class="row row-pers mt-5">
+                <div class="col-2 offset-10 text-center ">
+                    <h6 class="p-pers" data-translate="20">Totale Offerta:</h6><p id="totOff"></p>
+                </div>
+            </div>
+    
+            <div class="container ml-0">
+                <div class="row row-pers ml-0">
+                    <div class="col-10 offset-3 ml-0 mb-0">
+                        <p data-translate="21">
+                            Si richiede di indicare sempre il nostro numero di offerta in caso di ordine.
+                        </p>
+                   
+                    </div>
+                </div>
+            
+              
+            
+                <div class="row row-pers footer mt-3 ml-0 no-page-break">
+                    <div class="col-12 offset-3 ml-0">
+                        <p class="mt-0 mb-0 text-left ml-0" data-translate="22">
+                            Eventuali richieste di certificati dovranno essere espressamente indicate nell'ordine.
+                        </p>
+                        <p class="mt-0 mb-0 text-left ml-0"  data-translate="23">
+                            Condizioni di vendita: solite con Voi in uso.
+                        </p>
+                        <p class="mt-0 mb-0 text-left ml-0" data-translate="24">
+                            Trasporto: ex works.
+                        </p>
+                        <br>
+                        <p class="mt-0 mb-0 text-left ml-0" data-translate="25">
+                            Rimanendo a Vostra disposizione per eventuali chiarimenti, porgiamo cordiali saluti.
+                        </p>
+                        <p data-translate="16" style="font-size: 13px;" class="p-pers text-left">
+                            Ulteriori informazioni sull'offerta si possono trovare nel portale intermek
+                            all'indirizzo <a style="color: black; text-decoration: none;" href="https://www.portal.intermek.com/"><b>www.portal.intermek.com </b></a>(solo per utenti abilitati)
+                        </p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+             
+
+        <div class="row row-pers mt-2">
+            <div class="col-2">
+                <p class="p-pers" id="txtNoteOff"></p>
+            </div>
+        </div>
+
+        <div class="row row-pers">
+            <div class="col col-pers">
+                <p class="p-pers" id="txtTermOfAgr"></p>
+            </div>
+        </div>
+
+        <div class="row row-pers">
+            <div class="col col-pers">
+                <p class="p-pers" id="txtDescrPag"></p>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col col-pers center">
+                <button id="btnStampa" style="width: 100px; height: 40px;" class="btn btn-success">
+                    <p data-translate="15">Stampa</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer"></div>
+
+
+    <style>
+
+        @media print
+        {
+            table
+            {
+                zoom: 0.8;
+            }
+        }
+
+        table
+        {
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        .no-page-break
+        {
+            page-break-inside: avoid;
+        }
+    </style>
+
+    <!--  CDN per JQUERY-->
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!--  CDN per BOOTSTRAP-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+    <!--  CDN per AXIOS CHIAMATE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/locale/it.js"></script>
+
+    <!-- DevExpress CDN per EXPORT EXCEL-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+    <!-- ALTRO -->
+    <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+    <script src="js/IMK_utils.js"></script>
+
+    <script src="js/IMK_offerte.js"></script>
+
+</body>
+
+</html>

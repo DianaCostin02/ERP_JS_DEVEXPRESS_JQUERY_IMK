@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="must-revalidate" />
+    <link rel="icon" href="/images/new_logo.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- DevExpress CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+    <!-- Custom CSS -->
+    <link href="../css/main.css" rel="stylesheet" />
+
+    <title>Commesse</title>
+</head>
+
+<body>
+    <div id="main">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="row row-pers">
+                <div class="col-1 col-pers center">
+                    <a class="navbar-brand" href="/" style="font-size: 2em; margin-right: 0;">
+                        Intermek
+                    </a>
+                </div>
+                <div class="col-2 col-pers padding-12">
+
+                </div>
+                <div class="col-4 col-pers center">
+                    <div class="row row-pers">
+                        <a class="navbar-brand" style="font-size: 2em; margin-right: 0;">
+                            Storico Commesse (Stato = 9) Ultimi 6 mesi
+                        </a>
+                    </div>
+                </div>
+                <div class="col-2 col-pers center padding-12">
+                    <button
+                        style=" vertical-align:middle! important;background-color: transparent; border-color: transparent;"
+                        onClick="javascript:window.open('https://docs.google.com/presentation/d/1YihZvRX0EEmSohIKF2i3kqUlJ57t-oloZZFPz9kpQr4/edit?usp=sharing', '_blank');">
+                        <!-- <img src="/images/info.png" style="width:25px;height:30px;">-->
+                        <p class="white">Presentazione Modulo</p>
+                    </button>
+                </div>
+
+                <div class="col-2 col-pers right padding-12">
+                    <form action="\">
+                        <button class="btn btn-danger" style="width: 100px;" type="submit">
+                            <strong>INDIETRO</strong>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <center>
+        <div class="row row-pers mt-3">
+            <div class="demo-container">
+                <img id="caricamento" class="ruota" width="56" height="63" src="/images/new_logo.png"></img>
+                <div width="100%" class="" id="gridContainer"></div>
+            </div>
+        </div>
+    </center>
+
+
+    <style>
+        .dx-datagrid .dx-data-row>td.bullet {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /*td{
+            text-align: left !important;
+        }*/
+
+        .dx-state-hover {
+            background-color: rgb(153, 65, 235, 0.2) !important;
+            /*z-index: 15!important;*/
+            color: black;
+            /* background-color:rgb(229, 223, 138, 0.2)!important;*/
+        }
+
+        #gridContainer {
+            max-height: 90vh;
+            min-height: auto;
+        }
+
+        /*.dx-scrollbar-horizontal .dx-scrollable-scroll {
+            height: 30px;
+            width: 5px;
+        }*/
+
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable {
+            /*  height: 30px;*/
+            -webkit-transition: height .2s linear .15s, background-color .2s linear .15s;
+            transition: height .2s linear .15s, background-color .2s linear .15s;
+        }
+
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active,
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active .dx-scrollable-scroll,
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover,
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover .dx-scrollable-scroll {
+            height: 15px;
+            width: 5px;
+        }
+
+        .dx-scrollbar-horizontal.dx-scrollbar-hoverable {
+            /* height: 30px;*/
+            width: 5px;
+        }
+
+        .ruota {
+            transform: rotate(0deg);
+            animation: rotate 1s infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <!--  CDN per JQUERY-->
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- DevExpress CDN per EXPORT EXCEL-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <!--  CDN per BOOTSTRAP-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+    <!--  CDN per AXIOS CHIAMATE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/locale/it.js"></script>
+
+
+    <!-- Includi il pacchetto file-saver tramite un CDN -->
+    <script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+    <script src="js/IMK_utils.js"></script>
+    <script src="js/IMK_ListaCommesseStorico.js"></script>
+</body>
+
+</html>

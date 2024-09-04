@@ -1,0 +1,164 @@
+<!-- AUTORE: IT
+DATA ULTIMA MODIFICA: 11/7/2024 11:26 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="must-revalidate" />
+    <link rel="icon" href="/images/new_logo.png" />
+
+    <!--PDF-->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <!-- <script src="https://unpkg.com/jspdf and https://unpkg.com/jspdf-autotable"></script> -->
+
+    <!-- DevExpress CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="./css/OrdiniTestate.css" rel="stylesheet" />
+
+    <title>Intermek</title>
+</head>
+
+<body class="dx-viewport">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="row row-pers">
+
+
+            <div class="col-3 col-pers padding-12">
+
+            </div>
+
+            <div class="col-1 col-pers padding-12">
+
+            </div>
+            <div class="col-1 col-pers padding-12">
+
+            </div>
+            <div class="col-2 col-pers center">
+                <div class="row row-pers">
+                    <a id="titolo_simp" class="navbar-brand" href="/" style="font-size: 2em; margin-right: 0;">
+                        TESTATA ORDINE
+                    </a>
+                </div>
+            </div>
+            <div class="col-1 col-pers padding-12">
+                <!--<button id="btn_show_tab_legend" class="btn_show_tab_legend ">
+                    Legend                       
+                </button>-->
+            </div>
+            <div class="col-1 col-pers center padding-12">
+                <button
+                    style=" vertical-align:middle! important;background-color: transparent; border-color: transparent;"
+                    onClick="javascript:window.open('https://docs.google.com/presentation/d/1ziiDftox3aam7CNFk0aoy99OdmIP52nxqDc1lYRkZx4/edit?usp=sharing', '_blank');">
+                    <img src="/images/info.png" style="width:25px;height:30px;">
+                </button>
+            </div>
+
+            <div class="col-1 col-pers padding-12">
+            </div>
+            <div class="col-2 col-pers right padding-12">
+
+                <a id="back-btn" class="btn btn-danger">INDIETRO</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="row mt-3 ml-3">
+        <ul class="nav nav-tabs" id="tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="tabTestata"> TESTATA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tabAppalti">APPALTI</a>      
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tabRighe">RIGHE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tabDestinazioni">DESTINAZIONI</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid">
+
+        
+
+    
+  
+    </div>
+    
+    <!--  CDN per JQUERY-->
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--  CDN per BOOTSTRAP-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+    <!--  CDN per AXIOS CHIAMATE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/locale/it.js"></script>
+
+    <!-- DevExpress CDN per EXPORT EXCEL-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+    <!-- ALTRO -->
+    <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.5.5/cldr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.5.5/cldr/event.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.5.5/cldr/supplemental.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.4.2/globalize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.4.2/globalize/number.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.4.2/globalize/date.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.4.2/globalize/message.js"></script>
+    <!-- Includi i file di localizzazione di DevExtreme -->
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/localization/dx.messages.it.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/localization/globalize/date.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/localization/globalize/number.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/localization/globalize/currency.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/localization/globalize/message.js"></script>
+
+
+    <script src="js/IMK_utils.js"></script>
+
+    <script src="js/IMK_OrdiniTestate.js"></script>
+
+</body>
+
+</html>

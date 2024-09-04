@@ -1,0 +1,3805 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+            crossorigin="anonymous"
+        />
+
+        <!-- Material Icons -->
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <link href="../css/main.css" rel="stylesheet" />
+            
+        <!-- Popper.js first, then Bootstrap JS -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous">
+        </script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+			integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous">
+        </script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+			integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous">
+        </script>
+
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/ddt.js"></script>
+
+        <title>Intermek</title>
+    </head>
+
+    <body>
+        <div id="pag1" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag1"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col" style="width: 250px;">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT1"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers d-none">
+                <div class="col col-pers font10">
+                    <p class="p-pers">A decorrere dal quinto giorno dalla data di ricevimento della merce, la merce si ritiene accettata e da quel momento decorrono i 30 giorni di garanzia. Oltre a questo termine non si accettano contestazioni per difetti o mancanze.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag2" class="font13 d-none mt-5" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag2"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT2"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag3" class="font13 d-none mt-3" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag3"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT3"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag4" class="font13 d-none mt-3" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag4"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT4"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag5" class="font13 d-none mt-3" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT5"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag6" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag6"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT6"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag7" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag7"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT7"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag8" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag8"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT8"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag9" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag9"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT9"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag10" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag10"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT10"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag11" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag11"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT11"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pag12" class="font13 d-none" style="padding: 20px;">
+            <!-- Logo Intermek e logo TUV -->
+            <div class="row row-pers">
+                <div class="col-5 col-pers left">
+                    <img width="300" height="120" src="./images/Logo.jpg" alt="...">
+                </div>
+                <div class="col-4 col-pers"></div>
+                <div class="col-3 col-pers left">
+                    <img width="70" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                </div>
+            </div>
+            <br>
+            <!-- Anagrafica del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Destinatario</strong></p>
+                    <p class="p-pers DDT_dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers"><strong>Spett.le</strong></p>
+                    <p class="p-pers DDT_ragsoc"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Indirizzo del cliente -->
+            <div class="row row-pers">
+                <div class="col-6 col-pers">
+                    <p class="p-pers DDT_indirizzo-dest"></p>
+                    <p class="p-pers DDT_citta-dest"></p>
+                </div>
+                <div class="col-6 col-pers left">
+                    <p class="p-pers DDT_indirizzo"></p>
+                    <p class="p-pers DDT_citta"></p>
+                </div>
+            </div>
+            <br>
+            <!-- Testata DDT -->
+            <div class="row row-pers border-full" style="background-color: lightgray;">
+                <div class="col-3 col-pers left" style="padding-left: 10px;">
+                    <p class="p-pers"><strong>Documento di Trasporto</strong></p>
+                </div>
+                <div class="col-1 col-pers left">
+                    <p class="p-pers"><strong>N.</strong></p>
+                </div>
+                <div class="col-2 col-pers left">
+                    <p class="p-pers"><strong class="DDT_id"></strong></p>
+                </div>
+                <div class="col-4 col-pers left">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers center">
+                            <p class="p-pers"><strong>del</strong></p>
+                        </div>
+                        <div class="col-9 col-pers left">
+                            <p class="p-pers"><strong class="DDT_dataEm"></strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-pers left" style="padding-right: 10px;">
+                    <div class="row row-pers">
+                        <div class="col-6 col-pers center">
+                            <p class="p-pers">Pag.</p>
+                        </div>
+                        <div class="col-6 col-pers left">
+                            <p class="p-pers" id="txtPag12"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers font10 border-part">
+                <div class="col-4 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Codice</p>
+                        </div>
+                        <div class="col-6 col-pers font12">
+                            <p class="p-pers DDT_codice"></p>
+                        </div>
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Cod.IVA</p>
+                        </div>
+                        <div class="col-2 col-pers center font12">
+                            <p class="p-pers DDT_iva"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">P.I.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pi"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">C.Fisc.</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_cf"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Tel/Fax</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_telfax"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Pagamento</p>
+                        </div>
+                        <div class="col-10 col-pers font12">
+                            <p class="p-pers DDT_pagamento"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers">
+                            <p class="p-pers">Banca appoggio</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_bancaAppoggio"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">ABI</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_abi"></p>
+                        </div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">CAB</p>
+                        </div>
+                        <div class="col-1 col-pers font12">
+                            <p class="p-pers DDT_cab"></p>
+                        </div>
+                        <div class="col-6 col-pers"></div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-2 col-pers"></div>
+                        <div class="col-1 col-pers center">
+                            <p class="p-pers">IBAN</p>
+                        </div>
+                        <div class="col-7 col-pers font12">
+                            <p class="p-pers DDT_iban"></p>
+                        </div>
+                        <div class="col-1 col-pers">
+                            <p class="p-pers">Valuta</p>
+                        </div>
+                        <div class="col-1 col-pers center font12">
+                            <p class="p-pers DDT_valuta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabella dei pezzi -->
+            <table class="table margin-bot-10" style=" height: 100px;">
+                <thead class="font11">
+                    <tr>
+                        <th scope="col">Codice</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">UM</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Scatole</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody class="font12" id="tabRigheDDT12"></tbody>
+            </table>
+            <!-- Footer del DDT -->
+            <div class="row row-pers border-full font10">
+                <div class="col-7 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Causale trasporto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_causale"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Porto</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_porto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Aspetto beni</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_aspettobeni"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 col-pers">
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Compilato da:</p>
+                        </div>
+                        <div class="col-9 col-pers font12">
+                            <p class="p-pers DDT_compilato"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Numero colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_ncolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Tara</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_tara"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Peso colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_pcolli"></p>
+                        </div>
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Volume colli</p>
+                        </div>
+                        <div class="col-3 col-pers font12">
+                            <p class="p-pers DDT_vcolli"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pers border-part font10" style="height: 100px;">
+                <div class="col-5 col-pers border-r">
+                    <div class="row row-pers">
+                        <div class="col-4 col-pers">
+                            <p class="p-pers">Trasporto a cura</p>
+                        </div>
+                        <div class="col-8 col-pers font12">
+                            <p class="p-pers DDT_trasporto"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspNome"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspInd"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspCitta"></p>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col col-pers font12">
+                            <p class="p-pers DDT_traspIva"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 col-pers">
+                    <div class="row row-pers border-b" style="height: 50px;">
+                        <div class="col-3 col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers">Data trasporto</p>
+                                </div>
+                            </div>
+                            <div class="row row-pers">
+                                <div class="col col-pers center font12">
+                                    <p class="p-pers DDT_dataTrasporto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers border-r">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma conducente</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-pers">
+                            <div class="row row-pers">
+                                <div class="col col-pers center">
+                                    <p class="p-pers font14"><strong>Firma destinatario</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-pers">
+                        <div class="col-3 col-pers">
+                            <p class="p-pers">Condizioni di vendita</p>
+                        </div>
+                        <div class="col-9 col-pers">
+                            <p class="p-pers DDT_condizioni"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-5 mb-3">
+            <div class="col col-pers center">
+                <button id="btnStampa" class="btn btn-success no-stampa">Stampa</button>
+                <button id="btnStampaEtichette" class="btn btn-success no-stampa">Stampa Etichette</button>
+            </div>
+        </div>
+    </body>
+</html>

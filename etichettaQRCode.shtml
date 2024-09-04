@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Intermek</title>
+    </head>
+    <body>
+        <div class="row row-pers padding-20">
+            <div class="col col-pers">
+                <div class="row row-pers">
+                    <div class="col-4 col-pers">
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers font13">Codice:</p>
+                            </div>
+                        </div>
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers" id="pCodice"></p>
+                            </div>
+                        </div>
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers font13">Descrizione:</p>
+                            </div>
+                        </div>
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers font13" id="pDescrizione"></p>
+                            </div>
+                        </div>
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <p class="p-pers" id="pSMLR"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 col-pers">
+                        <div id="qrcode" style="width:150px; height:150px;"></div>
+                    </div>
+                    <div class="col-5 col-pers"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-3 padding-20 no-stampa">
+            <div class="col col-pers">
+                <button id="btnStampa" class="btn btn-success">Stampa</button>
+            </div>
+        </div>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/lib/qrcode.js"></script>
+        <script src="js/IMK_utils.js"></script>
+        <script src="js/IMK_etichettaQRCode.js"></script>
+    </body>
+</html>

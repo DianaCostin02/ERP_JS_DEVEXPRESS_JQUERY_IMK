@@ -1,0 +1,3 @@
+<div class="col-2 col-pers left">
+    <button id="btnScarica" class="btn btn-warning" style="margin-left: 10px;"><strong>DOWNLOAD CSV</strong></button>
+</div>

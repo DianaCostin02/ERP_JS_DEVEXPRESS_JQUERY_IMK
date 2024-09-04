@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-Equiv="Cache-Control" Content="no-cache">
+    <meta http-Equiv="Pragma" Content="no-cache">
+    <meta http-Equiv="Expires" Content="0">
+    <link rel="icon" href="/images/new_logo.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- DevExpress CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+    <link href="../css/main.css" rel="stylesheet" />
+
+
+    <title id="titolo_tab">AnagCliFor</title>
+</head>
+
+<div id="main">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="row row-pers center">
+            <div class="col-2 col-pers left">
+                <div class="row row-pers left">
+                    <a class="navbar-brand" style="font-size: 1.5em;">
+                        INTERMEK <div class=" col-pers left" style="color: white;"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-2 col-pers">
+            </div>
+
+            <div class="col-2 col-pers left">
+                <div class="row row-pers center">
+                    <a class="navbar-brand" href="/" style="font-size: 1.8em">
+                        ANAGRAFICA - CLIENTI - FORNITORI <div class=" col-pers left" style="color: rgb(255, 255, 255);"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-6 col-pers right padding-12">
+                <form action="\index.shtml">
+                    <button class="btn btn-danger" style="width: 100px;" type="submit">
+                        <strong>INDIETRO</strong>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+
+<center>
+    <div class="demo-container mb-0 pb-0">
+        <img id="caricamento" class="ruota" width="56" height="60" src="/images/new_logo.png"></img>
+    </div>
+    <div id="popupLog">
+        <div id="gridLog"></div>
+    </div>
+    <div id="gridContainer"></div>
+</center>
+
+<style>
+  
+    /*stile utilizzato per la modfica del DATAGRID*/
+    #gridContainer {
+        width: 96%;
+        height: 85vh;
+    }
+    
+    
+    #gridLog>.dx-datagrid .dx-state-hover {
+        background-color: rgba(65, 215, 235, 0.2) !important;
+
+        color: black;
+
+        /* background-color:rgb(229, 223, 138, 0.2)!important;*/
+    }
+    /*stile utilizzato per la modifica della TOOLBAR (posizionata fra datagrid e header) */
+    div.dx-toolbar-items-container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /*stile utilizzato per la modifica del COUNTER PAGE*/
+    div.dx-widget.dx-datagrid-pager.dx-pager {
+        display: flex;
+        justify-content: center !important;
+        margin-top: 10x;
+    }
+
+    /*stile utilizzato per la modifica dell'INTESTAZIONE DEL DATAGRID*/
+    tr.dx-row.dx-column-lines.dx-header-row {
+
+
+        
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+         color: black;
+    }
+
+    /*EFFETTO HOVER TESTO*/
+    .dx-state-hover {
+        background-color:rgb(153, 65, 235,0.2)!important;
+    }
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!--  CDN per JQUERY-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<!--  CDN per BOOTSTRAP-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+
+<!--  CDN per AXIOS CHIAMATE-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+    integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+    crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+<!-- ALTRO -->
+<script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+<script src="js/IMK_utils.js"></script>
+<script src="js/AnagClifor.js"></script>
+
+<!-- DevExpress CDN per EXPORT EXCEL-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

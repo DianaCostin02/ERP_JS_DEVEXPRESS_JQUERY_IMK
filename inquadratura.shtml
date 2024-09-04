@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquadratura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.2.3/css/dx.light.css">
+   
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark" style="height: 85px;">
+        <div class="col-xl-3 offset-xl-1 d-flex justify-content-left" style="color: white;">
+            <h2>INTERMEK</h2>
+        </div>
+
+        <div class="col-xl-4 d-flex justify-content-center"  style="color: white;">
+            <h2>INQUADRATURA</h2>
+        </div>
+
+        <div class="col-xl-1  offset-xl-3 d-flex justify-content-left" >
+            <form action="\">
+                <button class="btn btn-danger" style="width: 100px;" type="submit">
+                    <strong>INDIETRO</strong>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row mt-custom">
+
+            <div class="col-xl-10 offset-xl-1">
+                
+                <button type="button" class="btn btn-dark">BILANCIA PRODUZIONI</button>
+                <div class="mt-2" id="dataGridCommesse" ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <style>
+        td
+        {
+            border: 1px solid rgb(53, 53, 53) !important;
+            background-color: rgb(250, 250, 250);
+        }
+
+        .dx-header-row > td
+        {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            background-color: #545a5f;
+        }
+
+        .imp
+        {
+            background-color: rgba(147, 197, 255, 0.349);
+        }
+
+        .pro
+        {
+            background-color: rgba(227, 193, 255, 0.384);
+        }
+
+        .ord
+        {
+            background-color: rgba(130, 255, 245, 0.322);
+        }
+
+        body{
+            background-image: url("./images/icon_intermek_trasp.png");
+            height: 100vh;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .mt-custom
+        {
+            margin-top: 100px;
+        }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.2.3/js/jquery.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.2.3/js/jszip.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/22.2.3/js/dx.all.js"></script>
+    <script src="./js/IMK_inquadratura.js"></script>
+
+</body>
+</html>

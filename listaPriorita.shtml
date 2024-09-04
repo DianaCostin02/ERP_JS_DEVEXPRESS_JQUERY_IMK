@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Intermek</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Intermek</a>
+                <a href="/" class="btn btn-danger">Indietro</a>
+            </div>
+        </nav>
+
+        <div class="padding-20">
+            <div class="row row-pers">
+                <div class="col col-pers center">
+                    <h3>Lista commesse con priorità</h3>
+                </div>
+            </div>
+
+            <div class="row row-pers mt-3">
+                <div class="col col-pers table-fix-head">
+                    <table class="table table-bordered width100perc" id="tabListaPri">
+                        <thead class="table-dark">
+                            <th>Seq - Pr</th>
+                            <th>Macchina</th>
+                            <th>Operatore</th>
+                            <th class="sortable" data-asc="1" data-type="text" title="Ordina per articolo">Art.<i class="material-icons md-15">unfold_more</i></th>
+                            <th>Desc. Art</th>
+                            <th>Qt</th>
+                            <th>Comm</th>
+                            <th>St.</th>
+                            <th>Seq Ciclo</th>
+                            <th>Fase - Cat</th>
+                            <th>Disp.Ora</th>
+                            <th>% Pres</th>
+                            <th>Note</th>
+                            <th>% Mat Disp</th>
+                            <th>H Res.</th>
+                            <th>D.Ult.Dich</th>
+                            <th>D.Lancio</th>
+                            <th class="sortable" data-asc="1" data-type="date" title="Ordina per data pianificazione">D.Pian.<i class="material-icons md-15">unfold_more</i></th>
+                            <th>D.Prev.Inizio</th>
+                            <th>D.Prev.Fine</th>
+                            <th class="sortable" data-asc="1" data-type="date" title="Ordina per data consegna">D.Cons.<i class="material-icons md-15">unfold_more</i></th>
+                        </thead>
+                        <tbody id="tbodyListaPri">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/IMK_utils.js"></script>
+        <script src="js/IMK_listaPriorita.js"></script>
+    </body>
+</html>

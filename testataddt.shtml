@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon" href="/images/new_logo.png" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!-- DevExpress CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title id="titolo_tab"></title>
+        
+    </head>
+    <body class="dx-viewport">
+        
+
+            <!-- Modale -->
+        <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true" >
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">DDT</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="commessa">Commessa</label>
+                                <input type="text" class="form-control" id="modalCommessa" placeholder="Inserisci commessa" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="clienteEtichetta">Cliente Etichetta</label>
+                                <select  class="form-control" id="modalCliente">
+                                    <option value="IRCA Div.Rica" selected>IRCA Div.Rica</option>
+                                    <option value="IRCA Div.Rica (Rep.Assiemi)">IRCA Div.Rica (Rep.Assiemi)</option>
+                                    <option value="IRCA ZOPPAS INDUSTRIES ROMANIA">IRCA Zoppas Industries ROMANIA</option>
+                                    <!-- Aggiungi altre opzioni se necessario -->
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="codificaCliente">Codifica Cliente</label>
+                                <input type="text" class="form-control" id="modalCodifCliente" placeholder="Inserisci codifica cliente" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="firstModalNOrdine">Numero Vs. Ordine</label>
+                                <input type="text" class="form-control" id="modalOrdine" placeholder="Inserisci n° vs. ordine" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="codificaCliente">Peso Lordo(KG)</label>
+                                <input type="number" class="form-control" id="modalPesoL" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="codificaCliente">Peso Netto(KG)</label>
+                                <input type="number" class="form-control" id="modalPesoN" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="codificaCliente">N° Colli</label>
+                                <input type="number" class="form-control" id="modalColli" min="1" value="1" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>Data Consegna</label>
+                                <input type="date" class="form-control" id="modalDataConsegna" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnFM_Close" type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                        <button id="btnModal_Avanti" type="button" class="btn btn-primary">Avanti</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modale di Bootstrap -->
+        <!-- <div class="modal fade" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog modal-xxl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">DDT</h5>
+                        <button id="btnModalClose" type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+                    </div>
+
+                    <div  id="bodySecondModal" class="modal-body" style="z-index: 3;">
+                        <div class="container" id="containerModal">
+                           
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                   <div class="row border"  style="height: 100px;" >
+                                        <h5>Receiver</h5>
+                                        <p id="modalCliente" class="d-flex justify-content-center"></p>
+                                   </div>
+                                   <div class="row border"  style="height: 100px;">
+                                        <h5>AdviceNote Nr/Invoice Nr(N)</h5>
+                                        <p id="modalNddt" class="d-flex justify-content-center"></p>
+                                   </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row border"  style="height: 60px;">
+                                        <h5>Incoming Warehouse</h5>
+                                        <p id="modalIndirizzo" class="d-flex justify-content-center"></p>
+                                    </div>
+                                    <div class="row border"  style="height: 60px;">
+                                        <h5>Supplier Manufactoring Plant Address</h5>
+                                        <p class="d-flex justify-content-center">Intermek S.R.L - Via Amman, 45 - Cordenons</p>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-3 border"  style="height: 80px;">
+                                            <h5 style="font-size: small;">Gross Wt(KG)</h5>
+                                            <p id="modalGrossWt" class="d-flex justify-content-center"></p>
+                                        </div>
+                                        <div class="col-3 border"  style="height: 80px;">
+                                            <h5>Net Wt(KG)</h5>
+                                            <p id="modalNetWt" class="d-flex justify-content-center"></p>
+                                        </div>
+                                        <div class="col-6 border"  style="height: 80px;">
+                                            <h5>Package Volume(M3)</h5>
+                                            <p id="modalPackageVolume" class="d-flex justify-content-center"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9 border " style="height: 60px;">
+                                    <h5>Art No(P)</h5>
+                                    <p id="modalCodArticoloCliente" class="d-flex justify-content-center"></p>
+                                </div>
+                                <div class="col-3 border " style="height: 60px;">
+                                    <h5>Tot Nr Of Boxes(T)</h5>
+                                    <p id="modalNboxes" class="d-flex justify-content-center"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row border"  style="height: 200px;" >
+                                        <div class="col-8">
+                                            <h5>Quantity(Q)</h5>
+                                            <p id="modalQta" class="d-flex justify-content-center"></p>
+                                            <h5>Supplier(V)</h5>
+                                            <p class="d-flex justify-content-center">1400001489</p>
+                                            <h5>Serial Nr/ Order(S)</h5>
+                                            <p id="modalNorder" class="d-flex justify-content-center"></p>
+                                        </div>
+                                        <div class="col-4">
+
+                                        </div>
+                                         
+                                         <p></p>
+                                    </div>
+                                 </div>
+                                 <div class="col-6">
+                                     <div class="row border"  style="height: 50px;">
+                                        <h5>Description</h5>
+                                        <p id="modalDescrizione" class="d-flex justify-content-center"></p>
+                                     </div>
+                                     <div class="row border"  style="height: 50px;">
+                                        <h5>Part Number Supplier(C)</h5>
+                                        <p id="modalCodArticoloNostro" class="d-flex justify-content-center"></p>
+                                     </div>
+                                     <div class="row border"  style="height: 50px;">
+                                        <h5>Date(O)</h5>
+                                        <p id="modalDate" class="d-flex justify-content-center"></p>
+                                     </div>
+                                     <div class="row border"  style="height: 50px;">
+                                        <h5>Order Number(H)</h5> 
+                                        <p id="modalNumeroOrdine" class="d-flex justify-content-center"></p>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSM_Before" type="button" class="btn btn-secondary" data-dismiss="modal">Indietro</button>
+                        <button type="button" class="btn btn-primary" id="btnSM_Stampa">Stampa</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="navbar"></div>
+
+		<center>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#" role="tab" aria-selected="true" onClick="setSection(docSection)">Informazioni documento</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-selected="false" onClick="setSection(paymentSection)">Dati cliente/fornitore</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-selected="false" onClick="setSection(ordersSection)">Righe</a>
+                <a class='nav-item nav-link' data-toggle="tab" href="#" role="tab" aria-selected="false" onClick="setSection(destinationSection)">Destinazione</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-selected="false" onClick="setSection(recapSection)">Vettore/Riepilogo</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" aria-selected="false" onClick="setSection(previewSection)">Allegati</a>
+            </div>
+            <div class="row row-pers mt-3">
+                <div class="demo-container">  
+                    <img id="caricamento"class="ruota"width="56" height="63" src="/images/new_logo.png"	></img>
+                    <div class="section"></div>
+                </div>
+            </div>
+        </center>
+
+    
+        <style>
+
+            .border
+            {
+                border: 1px solid rgb(58, 58, 58) !important;
+            }
+
+            .modal-xxl {
+                max-height: 90%;
+                max-width: 90%; /* Puoi regolare questa percentuale per le dimensioni desiderate */
+            }
+
+            @media print
+            {
+
+                .modal-footer
+                {
+                    display: none;
+                }
+
+                #btnModalClose
+                {
+                    display: none;
+                }
+                #mask
+                {
+                    display: none;
+                }
+
+                #btnStampaDDTSpec
+                {
+                    display: none;
+                }
+
+                .modal-header
+                {
+                    border: none;
+
+                }
+
+                .modal-body
+                {
+                    border: none;
+                } 
+                
+                .modal-footer
+                {
+                    border: none;
+                }
+                
+
+                .modal-content 
+                {
+                    border: none;
+                    box-shadow: none;
+                }
+
+                
+                #exampleModalLabel
+                {
+                    display: none;
+                }
+            }
+
+           
+
+           
+
+            #title {
+                padding: 1em;
+            }
+            .demo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .dx-state-hover{
+                background-color:rgb(153, 65, 235,0.2)!important;               
+                color: black;
+            }
+
+            .highlightRow {
+                background-color:rgba(65, 235, 130, 0.2)!important;               
+            }
+            .nav{
+                padding-top: 2em;
+            }
+            .section{
+                width: 100%;
+            }
+            .docSection{
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                justify-content: center;
+                gap: 3em;
+                width: 100%;
+            }
+            .previewPrint {
+                width: 700px;
+                height: 900px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 2em;
+            }
+            #formContainer{
+                min-width: 500px;
+            }
+            #ordersSelectionTable {
+                width: 100%;
+                height: 95%;
+            }
+            #ddtfoSelectionTable, #ddtdepuSelectionTable {
+                margin: 0 auto;
+                height: 95%;
+            }
+            .dx-datagrid .dx-data-row > td.bullet 
+            {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .dx-datagrid-rowsview .dx-row:not(:last-child) {
+                border-bottom: 1px solid #ccc;
+            }
+            #tableContainer {
+                height: 80vh;
+                max-width: 90vw;
+                padding: 1em;
+            }
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable {
+                -webkit-transition: height .2s linear .15s,background-color .2s linear .15s;
+                transition: height .2s linear .15s,background-color .2s linear .15s;
+            }
+    
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active,
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active .dx-scrollable-scroll,
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover,
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover .dx-scrollable-scroll {
+                height: 15px;
+                width: 5px;
+            }
+    
+            .dx-scrollbar-horizontal.dx-scrollbar-hoverable
+            {
+                width: 5px;
+            }
+            .ruota {
+                transform: rotate(0deg);
+                    animation: rotate 1s infinite;
+                    }
+                    @keyframes rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+            }
+
+            .btnCaricaAll {
+                border: 1px solid #9e9e9e;
+                /* Add your desired border style */
+                /*padding: 5px 10px;  Add padding if needed */
+            }
+
+            #upload-file{
+                width: 100%;
+                height: 200px;
+            }
+
+            #righeDDTxAll {
+                width: 100%;
+            }
+
+        </style>
+<!--  CDN per JQUERY-->
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <!-- DevExpress CDN per EXPORT EXCEL-->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+
+       
+
+      
+
+        <!--  CDN per BOOTSTRAP-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+
+        <!--  CDN per AXIOS CHIAMATE-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>  
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/locale/it.js"></script>
+
+		<script src="https://unpkg.com/exceljs/dist/exceljs.min.js"></script>
+
+        <!-- Includi il pacchetto file-saver tramite un CDN -->
+        <script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha512-NFUcDlm4V+a2sjPX7gREIXgCSFja9cHtKPOL1zj6QhnE0vcY695MODehqkaGYTLyL2wxe/wtr4Z49SvqXq12UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="js/IMK_utils.js"></script>
+
+        <script src="js/IMK_testataddt.js"></script>
+ 
+        <!-- reusable components -->
+        <script type="text/javascript" src="js/components/navbar/navbar.js"></script>
+        <script type="text/javascript" src="js/components/message/message.js"></script>
+    
+    </body>
+</html>

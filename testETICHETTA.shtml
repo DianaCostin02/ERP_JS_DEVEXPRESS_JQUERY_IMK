@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+        crossorigin="anonymous"
+    />
+
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+               <div class="row border"  style="height: 120px;" >
+                    <p>Receiver</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+               </div>
+               <div class="row border"  style="height: 120px;">
+                    <p>AdviceNote Nr/Invoice Nr(N)</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+               </div>
+            </div>
+            <div class="col-6">
+                <div class="row border"  style="height: 80px;">
+                    <p>Incoming Warehouse</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                </div>
+                <div class="row border"  style="height: 80px;">
+                    <p>Supplier Manufactoring Plant Address</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                </div>
+                <div class="row border "  style="height: 80px;">
+                    <div class="col-3 border"  style="height: 80px;">
+                        <p style="font-size: small;">Gross Wt(KG)</p>
+                        <h5 class="d-flex justify-content-center">Prova</h5>
+                    </div>
+                    <div class="col-3 border"  style="height: 80px;">
+                        <p>Net Wt(KG)</p>
+                        <h5 class="d-flex justify-content-center">Prova</h5>
+                    </div>
+                    <div class="col-6 border"  style="height: 80px;">
+                        <p>Package Volume(M3)</p>
+                        <h3 class="d-flex justify-content-center">Prova</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9 border " style="height: 80px;">
+                <p>Art No (P)</p>
+                <h3 class="d-flex justify-content-center">Prova</h3>
+            </div>
+            <div class="col-3 border " style="height: 80px;">
+                <p>Tot Nr Of Boxes(T)</p>
+                <h3 class="d-flex justify-content-center">Prova</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="row border"  style="height: 320px;" >
+                     <p>Quantity(Q)</p>
+                     <h3 class="d-flex justify-content-center">Prova</h3>
+                </div>
+             </div>
+             <div class="col-6">
+                 <div class="row border"  style="height: 80px;">
+                    <p>Description</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                 </div>
+                 <div class="row border"  style="height: 80px;">
+                    <p>Part Number Supplier(c)</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                 </div>
+                 <div class="row border"  style="height: 80px;">
+                    <p>Date(O)</p>
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                 </div>
+                 <div class="row border"  style="height: 80px;">
+                    <p>Order Number(H)</p> 
+                    <h3 class="d-flex justify-content-center">Prova</h3>
+                 </div>
+             </div>
+        </div>
+    </div>
+    
+    
+    <style>
+        .border
+        {
+            border: 1px solid black !important;
+        }
+    </style>
+</body>
+</html>

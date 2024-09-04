@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon"	href="/images/new_logo.png"	/>
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Intermek</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Intermek</a>
+                <a href="javascript:window.history.back()" id="back-btn" class="btn btn-danger">Indietro</a>
+            </div>
+        </nav>
+
+        <div class="row row-pers mt-3">
+            <div class="col col-pers center">
+                <h2>Inserimento Tempi su Articolo</h2>
+            </div>
+        </div>
+
+        <div class="row row-pers mt-3">
+            <div class="col-6 col-pers center">
+                <div class="row row-pers mb-3">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-3 col-pers left">
+                        <p class="p-pers font20">Operatore:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="text" id="nomeUtenteLog" class="font20 center width100perc" style="color: cornflowerblue;" disabled>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers mb-3">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-3 col-pers left">
+                        <p class="p-pers font20">Articolo:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="text" class="font20 center width100perc" disabled>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers mb-5">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-3 col-pers left">
+                        <p class="p-pers font20">Fase:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="text" class="font20 width100perc" placeholder="Seleziona una fase" disabled>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers mb-5">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-3 col-pers left">
+                        <p class="p-pers font20">Data:</p>
+                    </div>
+                    <div class="col-7 col-pers">
+                        <input type="date" id="dataTempo" class="font20 right width100perc">
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers mb-5">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-2 col-pers left">
+                        <p class="p-pers font20">Ora inizio:</p>
+                    </div>
+                    <div class="col-3 col-pers">
+                        <input type="time" class="font20 right width100perc">
+                    </div>
+                    <div class="col-2 col-pers">
+                        <p class="p-pers font20">Ora fine:</p>
+                    </div>
+                    <div class="col-3 col-pers">
+                        <input type="time" class="font20 right width100perc">
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers">
+                    <div class="col-1 col-pers"></div>
+                    <div class="col-10 col-pers center">
+                        <div class="row row-pers">
+                            <div class="col col-pers">
+                                <h4>Commento</h4>
+                            </div>
+                        </div>
+                        <div class="row row-pers mt-2">
+                            <div class="col col-pers">
+                                <textarea class="font18 width100perc" style="height: 150px; overflow: auto; resize: none; background-color: lightyellow;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 col-pers"></div>
+                </div>
+                <div class="row row-pers mt-5">
+                    <div class="col col-pers center">
+                        <button class="btn btn-success font20"><strong>SALVA IL TEMPO</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-pers center">
+                <table class="table">
+                    <thead class="table-dark">
+                        <th>Data</th>
+                        <th>Comm</th>
+                        <th>Articolo</th>
+                        <th>Tempo</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Attività</th>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/IMK_utils.js"></script>
+        <script src="js/test3.js"></script>
+    </body>
+</html>

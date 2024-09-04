@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="must-revalidate" />
+    <link rel="icon" href="/images/new_logo.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="./css/etichettaDiFase.css" rel="stylesheet">
+    
+    <title>Etichetta Fase</title>
+
+</head>
+
+<body>
+    <div class="container-fluid" style="margin-top: 10px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <h5 id="eData"></h5>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h3 id="eOperatore"></h3>
+                        <h6><b>MACCHINA: </b><span id="eMacchina"></span></h6>
+                        <h6><b>NOME FASE: </b><span id="eNomeFase"></span></h6>
+                        <h6><b>TEMPO: </b><span id="eTempoPrevisto"></span></h6>
+                        <h6><b>COMMENTO: </b><span id="eCommento"></span></h6>
+                    </div>
+                    <div id="divQR" class="col-6">
+                        <div id="qrcode" class="align-middle"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-2" style="display: flex;">
+                        <button id="btnInfoStampa" type="button" class="btn btn-secondary" data-toggle="modal"
+                            data-target="#modalInfoStampa" >INFO</button>
+                    </div>
+                    <div class="col-4">
+                        <button id="btnStampa" type="button" class="btn btn-success">STAMPA</button>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalInfoStampa" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Come configurare la stampante?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="./images/EtichetteDiFase.png" style="width: 95%;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/lib/qrcode.js"></script>
+    <script src="js/IMK_utils.js"></script>
+    <script src="./js/IMK_etichettaDiFase.js"></script>
+</body>
+
+</html>

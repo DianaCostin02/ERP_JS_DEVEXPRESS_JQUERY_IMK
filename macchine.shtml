@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Cache-Control" content="must-revalidate" />
+	<link rel="icon"	href="/images/new_logo.png"	/>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+		integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+	<link rel="stylesheet" href="/css/main.css" />
+
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+	<link href="../css/main.css" rel="stylesheet" />
+
+	<title>Intermek</title>
+</head>
+
+<body>
+	<div class="legenda d-none" id="legenda">
+		<div class="legenda-content">
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<h3>Legenda</h3>
+				</div>
+			</div>
+			<br>
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<div class="row row-pers">
+						<div class="col col-pers center">
+							<h4>Articolo</h4>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/White.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Articolo Standard</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Orange.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Vuoto</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Yellow.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Articolo Nuovo</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Green.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Articolo a Consuntivo</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Blu.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Articolo Sperimentale</p>
+						</div>
+					</div>
+				</div>
+				<div class="col col-pers center">
+					<div class="row row-pers">
+						<div class="col col-pers center">
+							<h4>Commessa</h4>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/White.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Commessa Produzione</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Purple.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Commessa Servizio</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Red.png">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Non Conformità</p>
+						</div>
+					</div>
+				</div>
+				<div class="col col-pers center">
+					<div class="row row-pers">
+						<div class="col col-pers center">
+							<h4>Date</h4>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/Red.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Data Scaduta</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/White.PNG">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Data oggi fino a 3 giorni</p>
+						</div>
+					</div>
+					<div class="row row-pers">
+						<div class="col-3 col-pers">
+							<img width="30" height="30" src="./images/LightGreen.png">
+						</div>
+						<div class="col-9 col-pers left">
+							<p>Data oltre 3 giorni</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<button class="btn btn-secondary" id="btnCloseLegenda">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="cercaFase d-none" id="cerPers">
+		<div class="cercaFase-content">
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<p class="p-pers">CAMBIA PERSONA FASE</p>
+				</div>
+			</div>
+			<div class="row row-pers">
+				<div class="col-3 col-pers">
+					<p class="p-pers">Cerca una persona:</p>
+				</div>
+				<div class="col-7 col-pers">
+					<input type="text" id="txtCercaPers" class="width100perc" style="margin-bottom: 16px;" autocomplete="off"/>
+				</div>
+				<div class="col-1 col-pers">
+					<button class="btn btn-secondary" id="btnCercaPers">
+						<i class="material-icons md-18">search</i>
+					</button>
+				</div>
+				<div class="col-1 col-pers">
+					<button class="btn btn-danger" id="btnCloseCercaPers">
+						<i class="material-icons md-18">close</i>
+					</button>
+				</div>
+			</div>
+			<div class="row row-pers d-none" id="tabPersone">
+				<div class="col col-pers table-fix-head" style="height: auto; max-height: 500px;">
+					<table class="table table-bordered">
+						<thead class="table-dark">
+							<th>Nominativo</th>
+						</thead>
+						<tbody id="tbodyPersone">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">Intermek</a>
+			<a id="back-btn" class="btn btn-danger">Indietro</a>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row text-center mt-2 mb-2">
+			<div class="col">
+				<h3 id="title"></h3>
+				<p class="text-danger p-pers">Se le modifiche non dovessero essere visibili provare ad aggiornare la pagina</p>
+			</div>
+		</div>
+		<div class="row text-center mb-2 d-none" id="filter-container">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6">
+							<input type="text" class="form-control" id="filter-input" placeholder="Digita cosa vuoi cercare" onkeydown="RicercaTasto(event)">
+						</div>
+						<div class="col">
+							<button class="btn btn-outline-success btn-block" id="search-btn">Filtra</button>
+						</div>
+						<div class="col">
+							<button class="btn btn-outline-secondary btn-block" id="reset-btn">Rimuovi filtro</button>
+						</div>
+						<div class="col">
+							<button class="btn btn-outline-danger btn-block" onclick="window.location.reload()">Aggiorna lista</button>
+						</div>
+						<div class="col">
+							<button class="btn btn-outline-primary btn-block" id="btnLegenda">Legenda</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center" id="operations-container">
+			<div class="table-fix-head">
+				<table class="table table-hover table-bordered d-none" id="operations-table">
+					<thead class="table-dark">
+						<!--<th>Ante</th>-->
+						<th>St.</th>
+						<th>Seq</th>
+						<th>Pr</th>
+						<!--<th>Coda Att</th>-->
+						<th class="valNumShTab">Seq Ciclo</th>
+						<th>Fase</th>
+						<th>Cat</th>
+						<th>Comm</th>
+						<th>Qt</th>
+						<th class="sortable" data-asc="1" data-type="text" title="Ordina per articolo">Art.<i class="material-icons md-15">unfold_more</i></th>
+						<th>Desc. Art</th>
+						<th>Tipo Op</th>
+						<th>Operatore</th>
+						<th>Tipo Val Fase</th>
+						<th class="valNumShTab">Disp Ora</th>
+						<th class="valNumShTab">% Pres</th>
+						<th>Commento</th>
+						<th class="valNumShTab">% Mat Disp</th>
+						<!--<th class="valNumShTab">H Res.</th>
+						<th>D.Lancio</th>-->
+						<th class="sortable" data-asc="1" data-type="date" title="Ordina per data pianificazione">D.Pian.<i class="material-icons md-15">unfold_more</i></th>
+						<th>D.Prev.Inizio</th>
+						<!--<th>D.Ult.Dich</th>-->
+						<th>D.Prev.Fine</th>
+						<th class="sortable" data-asc="1" data-type="date" title="Ordina per data consegna">D.Cons.<i class="material-icons md-15">unfold_more</i></th>
+						<th></th>
+					</thead>
+					<tbody id="operations-tbody"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- Popper.js first, then Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+		integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+		integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+		crossorigin="anonymous"></script>
+
+	<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/IMK_utils.js"></script>
+	<script src="js/macchine.js"></script>
+</body>
+
+</html>

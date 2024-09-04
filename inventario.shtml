@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Cache-Control" content="must-revalidate" />
+		<link rel="icon"	href="/images/new_logo.png"	/>
+
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Intermek</title>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">Intermek</a>
+				<a href="/" class="btn btn-danger">Indietro</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row justify-content-center mt-3">
+				<div class="col-6">
+					<div class="card">
+						<div class="card-body">
+							<div class="row text-center mb-3">
+								<div class="col-12 mb-2">
+									<h3>Ricerca articolo nel magazzino</h3>
+									<code
+										>Inserisci manualmente il codice oppure scannerizza un qr-code cliccando
+										sull'apposito pulsante</code
+									>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-6">
+									<input
+										type="text"
+										id="article-code-input"
+										class="form-control"
+										placeholder="Inserisci cod. articolo"
+									/>
+								</div>
+								<div class="col-3">
+									<button
+										class="btn btn-outline-primary btn-block"
+										title="qr-code scan"
+										id="qrcode-scan-btn"
+									>
+										<i class="material-icons">qr_code_scanner</i>
+									</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<button class="btn btn-outline-success btn-block" id="search-btn">Cerca</button>
+								</div>
+								<div class="col">
+									<button class="btn btn-outline-secondary btn-block" id="reset-btn">
+										Resetta
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-center mt-4">
+				<div class="col-6">
+					<div class="card mb-3 d-none" id="article-info-card">
+						<div class="row g-0">
+							<div class="col-md-4">
+								<img src="" alt="Foto articolo" class="img-thumbnail" id="article-photo" />
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h5 class="card-title" id="article-name"></h5>
+									<p class="card-text" id="article-text"></p>
+									<p>Giacenza:</p>
+									<div class="row row-cols-lg-auto g-2 align-items-center">
+										<div class="col-12">
+											<input type="text" class="form-control" id="article-count" />
+										</div>
+										<div class="col-12">
+											<button class="btn btn-primary" id="article-update-btn">Aggiorna</button>
+										</div>
+										<p id="update-message"></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row text-center">
+				<div class="col">
+					<h3>è un test</h3>
+					<img src="assets/test.png" style="width: 200px" alt="qrcode-test" id="image" />
+				</div>
+				<input type="file" accept="image/*;capture=camera">
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+			integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+			integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+			crossorigin="anonymous"
+		></script>
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+		<script src="js/lib/jsqr.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/inventario.js"></script>
+		<script>
+			/* navigator.mediaDevices
+				.getUserMedia({ video: { facingMode: "environment" } })
+				.then(function (stream) {
+					video.srcObject = stream
+					video.setAttribute("playsinline", true) // required to tell iOS safari we don't want fullscreen
+					video.play()
+					requestAnimationFrame(tick)
+				}) */
+		</script>
+	</body>
+</html>

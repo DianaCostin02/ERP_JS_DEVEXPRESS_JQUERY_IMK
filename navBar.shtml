@@ -1,0 +1,281 @@
+<script>
+    var NameUserLog = getCookie("Nome Utente");
+
+    //Funzione che cattura l'errore e lo mostra in un paragrafo di testo 
+function catchError(e, msg) {
+	if (e === "") e = document.querySelector(".container")
+	// Show message
+	let p = document.createElement("p")
+	p.classList.add("text-center", "text-danger")
+	p.textContent = msg
+	e.appendChild(p)
+}
+
+//Funzione che apre il menù laterale
+function openNav() {
+	document.getElementById("mySidenav").style.width = "450px";
+	document.getElementById("main").style.marginLeft = "450px";
+	document.getElementById("btnMenu").setAttribute("class", "d-none");
+}
+
+//Funzione che chiude il menù laterale
+function closeNav() {
+	document.getElementById("mySidenav").style.width = "0";
+	document.getElementById("main").style.marginLeft = "0";
+	document.getElementById("btnMenu").setAttribute("class", "btn btn-dark");
+}
+
+</script>
+
+
+<div id="mySidenav" class="sidenav" style="padding-top:20px;">
+
+    <a class="d-flex align-items-center p-0 m-0 link-dark text-decoration-none ">
+        <!--	<div style="padding-left:20px;" class="col left">
+                <img  class="ruota"width="90" height="72" src="/images/logo-intemek-trasparente.ico"	></img>
+            </div>-->
+        <div class="col" style="font-size:30px">
+            <!--<span class="white fs-5 fw-semibold"> INTERMEK</span>
+                <img  class="ruota"width="60" height="48" src="/images/logo-intemek-trasparente.ico"	></img>
+                -->
+        </div>
+        <div class="col right">
+            <button style="border-color:transparent;background-color:transparent;color:white; font-size: 35px;"
+                onclick="closeNav()">
+                <i class="bi bi-x"></i>
+            </button>
+
+        </div>
+
+    </a>
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#list-collapse"
+                aria-expanded="true">
+                Principali
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <div style="padding-top: 5px;" class="white collapse show" id="list-collapse">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li>
+                        <a href="/listaOrdini.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+                            Lista Ordini
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaCommesse.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+                            Lista Commesse
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaFasi.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+                            Lista Fasi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaContatti.shtml" class="btn white sottoMenu">
+                            Gestione Contatti
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhSEHaLgXKnAHfaEEZ9Hn8xvOlAak69Re7xcwbmvkloZotyQ/viewform"
+                            target="_blank" class="btn yellowYe sottoMenuYellow">
+                            Permessi
+                            <i class="bi bi-phone"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#listArt-collapse"
+                aria-expanded="true">
+                Gestione Articoli
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <div style="padding-top: 5px;" class="white collapse show" id="listArt-collapse">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                    <li>
+                        <a href="/listaArticoli.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+                            Giacenze Articoli
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaRDA.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+                            RDA
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/segnalazioni.shtml" target="_blank" class="btn redYe sottoMenuRed">
+                            Segnalazioni
+                            <i class="bi bi-phone"></i>
+                        </a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0 border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+                data-bs-target="#list4-collapse" aria-expanded="true">
+                4.0
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <div style="padding-top: 5px;" class="white collapse" id="list4-collapse">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                    <li>
+                        <a href="/MTConnect.shtml" target="_blank" class="btn greenYe sottoMenuGreen">
+                            MT Connect
+                        </a>
+                    </li>
+                    
+
+
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+                data-bs-target="#test-collapse-options" aria-expanded="true">
+                Altre opzioni
+                <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div style="padding-top: 20px;" class="white collapse " id="test-collapse-options">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li>
+                        <a href="/menuCluster.shtml" target="_blank" class="btn white sottoMenu">
+                            Menu Cluster
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://10.10.25.2" target="_blank" class="btn greenYe sottoMenuGreen">
+                            Portale Clienti
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaOfferte.shtml" target="_blank" class="btn white sottoMenu">
+                            Lista Offerte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listaPriorita.shtml" target="_blank" class="btn white sottoMenu">
+                            Lista Priorità
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+        <li class="white mb-1">
+            <br>
+            <button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse"
+                data-bs-target="#test-collapse" aria-expanded="true">
+                Test
+                <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div style="padding-top: 20px;" class="white collapse " id="test-collapse">
+                <ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li>
+                        <a href="/scanpresenze.shtml" class="btn white sottoMenu">
+                            ScanQR - Presenze
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/test1.shtml" class="btn white sottoMenu">
+                            Test - Creazione Barcode
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/test2.shtml?id=98143" class="btn white sottoMenu">
+                            Edit Ana Comm
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/test3.shtml" class="btn white sottoMenu">
+                            Pausa - Commesse
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/test4.shtml?id=104088" class="btn white sottoMenu">
+                              - Pivot
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/stage/Robert/Calendario/graficoFasi.shtml" class="btn white sottoMenu">
+                            Svilluppo - GANTT
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/graficiMacchinePersone.shtml" target="_blank"
+                            class="btn orangeYe sottoMenuOrange">
+                            Grafici Persone Macchine
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/componente.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+                            Componente
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <!-- FOOTER DELLA BARRA LATERALE CON USER LOG style="background-color:transparent; border-color:trasparent;"-->
+
+    <div class="dropdown border-top ">
+        <br>
+        <div class="row ">
+            <div class="col-1 ">
+
+            </div>
+            <div class="col-1 left">
+                <img src="/images/user_white.png" width="50" height="50" class="rounded-circle">
+            </div>
+            <div class="col-7 pl-5">
+                <p class="white pr-0 pb-0 mb-0">Utente loggato: </p>
+                <p class="white pr-0 pt-0 nt-0" id="user-logged"></p>
+            </div>
+            <div class="col-3 pt-2 pr-4 " style="vertical-align: middle;">
+                <div class="row">
+                    <div class="col-8">
+                        <form action="/4DACTION/www_start_post" method="POST">
+                            <button class="btn btn-danger" style="width: auto;" type="submit">
+                                <strong>LOGOUT</strong>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-4"></div>
+                    <!--	<div class="col-1 pr-4 ">
+                            <button class="btn btn-success btn-sm tempi-row" id="scorciaoia_op_pers" >
+                                <i class="bi bi-list-check"></i>
+                            </button>
+                        </div>	
+                        <div class="col-1 ">
+                            <button class="btn btn-success btn-sm tempi-row" id="scorciaoia_tempi_task" >
+                                <i class="bi bi-clock"></i>
+                            </button>
+                        </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

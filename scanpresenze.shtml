@@ -1,0 +1,143 @@
+<!-- file.html.shtml -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Cache-Control" content="must-revalidate" />
+
+  <title>CONTROLLO PRESENZE</title>
+
+  	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1000px)" href="css/presenze.css" /> 
+  <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1000px)" href="css/mobile.css" />
+
+  <!--<link rel="stylesheet" href="presenze.css">-->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="shortcut icon" href="#">
+
+</head>
+
+
+<body>
+  <center>
+    <div class="logo">
+      <img src="imgs/intermek_payoff_colori.png" alt="Logo">
+    </div>
+
+    <div class="col-2 pt-2 "id="info_mov">
+      <a href='https://docs.google.com/presentation/d/1PetwMA9tyHhacDRdwPlSzZuUEn-H4UnnD4EWvO4J8Y0/edit#slide=id.g297850582b2_0_11'
+      id="btn_info" target="_blank" style=" vertical-align:middle! important;background-color: transparent; border-color: transparent;">
+          <img src="/images/info.png" style="width:25px;height:30px;">
+      </a>
+    </div>
+    
+    <div class="containerScan center mt-1">
+      <canvas id="qr-canvas" class="ciccio"></canvas>
+
+      <div id="currentWorker"></div>
+      
+      <div id="presenceData"></div>
+      <div id="permitData"></div>
+    </div>
+  </center>
+    
+
+  <center>
+    <div id="buttons" >
+      <button id="entryBtn" onclick="SetWorkerStart()">
+        <i class="material-icons">login</i>
+        <p>Entrata</p>
+      </button>
+      <button id="startBreakBtn" onclick="SetBreakStart()">
+        <i class="material-icons">lunch_dining</i>
+        <p>Inizio Pausa</p>
+      </button>
+      <button id="endBreakBtn" onclick="SetBreakEnd()">
+        <i class="material-icons">no_food</i>
+        <p>Rientro Pausa</p>
+      </button>
+      <button id="leftBtn" onclick="SetWorkerLeft()">
+        <i class="material-icons">logout</i>
+        <p>Uscita</p>
+      </button>
+    </div>
+  </center>
+
+  <style>
+    #buttons {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5em;
+      justify-content: center;
+      align-items: center;
+      font-size: larger;
+      max-width: 1500px;
+      padding: 0.5em;
+    }
+
+    #buttons button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 1em;
+      color: aliceblue;
+    }
+
+    #presenceData {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #presenceCard {
+      border: solid #2d6aac;
+      border-radius: 1em;
+      padding: 1em;
+      margin: 1em;
+    }
+    #entryBtn{
+      background-color: rgb(69, 185, 69)
+    }
+    #leftBtn{
+      background-color: rgb(185, 69, 69)
+    }
+    #startBreakBtn, #endBreakBtn{
+      background: rgb(220, 161, 24)
+    }
+    #entryBtn:disabled, #leftBtn:disabled, #startBreakBtn:disabled, #endBreakBtn:disabled{
+      background: rgb(120, 120, 120)
+    }
+  </style>
+
+		<!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+
+        <script src="lib/jquery-3.5.1.slim.min.js"></script>
+		    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+        <script src="IMK_utils.js"></script>
+        <script src="js/IMK_scanpresenze.js"></script>
+</body>
+
+</html>

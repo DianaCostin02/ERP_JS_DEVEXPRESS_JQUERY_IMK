@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Cache-Control" content="must-revalidate" />
+        <link rel="icon" href="/images/new_logo.png" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+
+        <!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!-- DevExpress CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" />
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Offerta</title>
+        
+    </head>
+    <body>
+
+        <!--BARRA HEADER-->
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="row">
+                <div class="col-4 d-flex align-items-center justify-content-left">
+                
+                        <a class="navbar-brand" style="font-size: 1.5em; margin-left: 20px;">
+                            INTERMEK 
+                        </a>
+                </div>
+
+                <div class="col-4 d-flex align-items-center justify-content-center">
+                        <a class="navbar-brand" href="/" style="font-size: 1.8em">
+                            <span id="txtID-title"></span> OFFERTA 
+                        </a>
+                </div>
+    
+                <div class="col-4 d-flex align-items-center justify-content-end">
+                    <form action="\index.shtml">
+                        <button class="btn btn-danger" style="width: 100px; margin-right: 20px;" type="submit">
+                            <strong>INDIETRO</strong>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- NAVBAR -->
+        <div class="row mt-3 ml-3">
+            <ul class="nav nav-tabs" id="tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tabTestata"> OFFERTA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tabRighe">RIGHE</a>
+                </li>
+            </ul>
+        </div>
+    
+        
+        <div class="sez" id="sezTestata">
+            <div class="row" style="margin-top: 40px">
+                
+                <div class="col-5 offset-1">
+                    <iframe id="iframe" title="Anteprima stampa offerta" class="previewPrint" width="100%" height="800px" style="box-shadow: 1px 1px 6px 1px darkgray; border-radius: 10px;"></iframe>
+                </div>
+        
+                <div class="col-5">
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-3 text-center">
+                            <p>Cliente:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="txtCli" type="text" class="form-control" readonly>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Creata Da:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="txtCreataDa" type="text" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>In Carico A:</p>
+                        </div>
+                        <div class="col-7">
+                            <div name="InCaricoA" id="selInCarico" class="form-control editable"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Offerta ID:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="txtID" type="text" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Num. Offerta:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="txtNum" type="text" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Data Creazione:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="dataCreazione" type="date" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Data Richiesta:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="dataRichiesta" type="date" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <p>Data Chiusura:</p>
+                        </div>
+                        <div class="col-7">
+                            <input id="dataChiusura" type="date" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <p>Note:</p>
+                    <textarea  name="Note" id="textNote" type="text" class="form-control editable"></textarea>
+
+                    <hr>
+
+                    <p>Accordi:</p>
+                    <textarea name="Term_of_agreements" id="textAccordi" class="form-control editable"></textarea>
+
+                    <hr>
+
+                    <p>Pagamento:</p>
+                    <textarea name="Descr_Pagamento" id="textPagamento" class="form-control editable"></textarea>
+                </div>            
+            
+            </div>
+        </div>
+            
+        <div class="sez" id="sezRighe">
+            <div class="row mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-2">
+                                <div style="box-shadow: 1px 1px 20px 2px rgb(216, 216, 216); display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                                    <h3>TOT. OFFERTA</h3>
+                                    <div id="currencyBox"></div>
+                                </div>
+                            </div>                          
+                        </div>
+                        <div class="row">
+                            <div class="col-2 offset-5 d-flex justify-content-center">
+                                <div id="addArticle"></div>
+                            </div>
+                            <div class="col-2 offset-3">
+                                <h6>In carico a (per ogni riga):</h6>
+                                <div id="InCaricoAXTutti"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div id="gridContainer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <style>
+            #currencyBox
+            {
+                font-size: xx-large;
+                border: none !important;
+            }
+        
+            .editable
+            {
+                background-color:  lightyellow;
+            }
+
+            .row
+            {
+                margin-bottom: 3px;
+            }
+
+            .centered-text .dx-texteditor-input {
+                text-align: center;
+            }
+        </style>
+        
+        <!--  CDN per JQUERY-->
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    
+        <!--  CDN per BOOTSTRAP-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+
+        <!--  CDN per AXIOS CHIAMATE-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/locale/it.js"></script>
+
+        <script src="js/IMK_utils.js"></script>
+
+        <script src="js/offertone.js"></script>
+ 
+    </body>
+</html>

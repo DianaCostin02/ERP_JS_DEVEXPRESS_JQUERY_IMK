@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Cache-Control" content="must-revalidate" />
+		<link rel="icon"	href="/images/new_logo.png"	/>
+
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+		<link href="../css/main.css" rel="stylesheet" />
+
+		<title>Cluster's</title>
+	</head>
+	<body>
+		<div id="mySidenav" class="sidenav" style="padding-top:10px;">
+			
+			<a  class="d-flex align-items-center p-0 m-0 link-dark text-decoration-none ">
+			<!--	<div style="padding-left:20px;" class="col left">
+					<img  class="ruota"width="90" height="72" src="/images/logo-intemek-trasparente.ico"	></img>
+				</div>-->
+				  <div class="col" style="font-size:30px">
+					<!--<span class="white fs-5 fw-semibold"> INTERMEK</span>
+					<img  class="ruota"width="60" height="48" src="/images/logo-intemek-trasparente.ico"	></img>
+					-->
+				  </div>
+				  <div class="col right">
+					<button style="border-color:transparent;background-color:transparent;color:white; font-size: 35px;" onclick="closeNav()">
+						<i class="bi bi-x"></i>
+					</button>
+				
+				  </div>
+				  
+			</a>
+			<ul style="padding-left: 30px;"class="white list-unstyled ps-0 border-top">
+				<li class="white mb-1">
+					<br>
+				  <button class="btnBubu btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#list-collapse" aria-expanded="true">
+					Principali
+					<i  class="bi bi-chevron-down"></i>
+				  </button>
+				  <div style="padding-top: 5px;"class="white collapse show" id="list-collapse">
+					<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						<li>
+							<a href="/ricerca.shtml" target="_blank" class="btn cyan sottoMenuBlu">
+								Ricerca Articolo								
+							</a>
+						</li>	
+						<li>
+							<a href="http://10.10.25.2" target="_blank" class="btn greenYe sottoMenuGreen">
+								Portale Clienti								
+							</a>
+						</li>	
+						<li>
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSfhSEHaLgXKnAHfaEEZ9Hn8xvOlAak69Re7xcwbmvkloZotyQ/viewform" target="_blank" class="btn yellowYe sottoMenuYellow">
+								Permessi
+							<i class="bi bi-phone"></i>
+							</a>
+						  </li>
+						 
+						  <li>
+							<a href="/listaFasi.shtml" target="_blank" class="btn orangeYe sottoMenuOrange">
+								Lista Fasi
+							</a>
+						  </li>				
+						
+						<li>
+							<a href="/segnalazioni.shtml" target="_blank" class="btn redYe sottoMenuRed">
+								Segnalazioni
+								<i class="bi bi-phone"></i>
+							</a>
+						</li>	
+						
+						<li>
+							<a href="/componente.shtml" target="_blank" class="btn purpleYe sottoMenuPurple">
+								Componente
+							</a>
+						</li>				
+					  
+					</ul>
+				  </div>
+				</li>
+			</ul>		
+			<ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+				<li class="white mb-1">
+					<br>
+					<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#test-collapse-options" aria-expanded="true">
+						Altre opzioni
+						<i  class="bi bi-chevron-down"></i>
+					</button>
+					
+				    <div style="padding-top: 20px;"class="white collapse " id="test-collapse-options">
+						<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small" >
+							<li >
+								<a href="/listaOfferte.shtml" target="_blank" class="btn white sottoMenu" >
+									Lista Offerte
+								</a>
+							</li>
+							<li>
+								<a href="/listaPriorita.shtml" target="_blank" class="btn white sottoMenu">
+									Lista Commesse
+								</a>
+							</li>
+						</ul>
+				    </div>
+				</li>
+			</ul>
+			<ul style="padding-left: 30px;" class="white list-unstyled ps-0  border-top">
+				<li class="white mb-1">
+					<br>
+					<button class="btnBubu center btn btn-toggle  " data-bs-toggle="collapse" data-bs-target="#test-collapse" aria-expanded="true">
+						Test
+						<i  class="bi bi-chevron-down"></i>
+					</button>
+					
+				    <div style="padding-top: 20px;"class="white collapse " id="test-collapse">
+						<ul class="white btn-toggle-nav list-unstyled fw-normal pb-1 small" >
+							<li>
+								<a href="/test1.shtml" class="btn white sottoMenu">
+									Test - Creazione Barcode
+								</a>
+
+							</li>
+							<li>
+								<a href="/test2.shtml?id=160706" class="btn white sottoMenu">
+									Sviluppo - TreeList DIBA
+								</a>
+							</li>
+							<li>
+								<a href="/test3.shtml" class="btn white sottoMenu">
+									Test - (vuoto)
+								</a>
+							</li>
+							<li>
+								<a href="/test4.shtml"  class="btn white sottoMenu">
+									Test - (vuoto)
+								</a>
+							</li>
+						</ul>
+				    </div>
+				</li>
+			</ul>
+	
+			<!-- FOOTER DELLA BARRA LATERALE CON USER LOG style="background-color:transparent; border-color:trasparent;"-->
+			
+			<div class="dropdown border-top " >
+				<br>
+				<div class="row ">
+					<div class="col-1 ">
+
+					</div>
+					<div class="col-1 left">						
+				 		<img src="/images/user_white.png"  width="50" height="50" class="rounded-circle">						
+					</div>
+					<div class="col-7 pl-5">
+						<p class="white pr-0 pb-0 mb-0" >Utente loggato: </p>
+				  		<p class="white pr-0 pt-0 nt-0"  id="user-logged"></p>
+					</div>
+					<div class="col-3 pt-2 pr-4 " style="vertical-align: middle;">
+						<div class="row">
+							<div class="col-1 pr-4 ">
+								<button class="btn btn-success btn-sm tempi-row" id="scorciaoia_op_pers" >
+									<i class="bi bi-list-check"></i>
+								</button>
+							</div>	
+							<div class="col-1 ">
+								<button class="btn btn-success btn-sm tempi-row" id="scorciaoia_tempi_task" >
+									<i class="bi bi-clock"></i>
+								</button>
+							</div>
+						</div>			
+					</div>				
+				</div>
+			</div>
+		</div>
+
+		<div id="main">
+			<nav class="navbar navbar-dark bg-dark">
+				<div class="row row-pers">
+					<div class="col-1 col-pers center">
+						<button type="button" id="btnMenu" class="btn btn-dark" style="width: 100px;" onclick="openNav()"><strong style="font-size: 2em;">&#9776;</strong></button>
+					</div>
+					<div class="col-4 col-pers d-none"></div>
+					<div class="col-4 col-pers padding-12">
+						<div class="row row-pers">
+							<div class="col-11 col-pers">
+								<input type="text" class="width100perc height100perc" id="txtRicerca" autocomplete="off" onkeydown="RicercaTasto(event)" placeholder="Scrivi qua per fare una ricerca"/>
+							</div>
+							<div class="col-1 col-pers">
+								<button class="btn btn-success" id="btnCerca">Cerca</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-2 col-pers center">
+						<a class="navbar-brand" style="font-size: 2em; margin-right: 0;" href="/index.shtml">Intermek</a>
+					</div>
+					<div class="col-5 col-pers right padding-12">
+						<form action="/4DACTION/www_start_post" method="POST">
+							<button class="btn btn-danger" style="width: 100px;" type="submit">
+								<strong>LOGOUT</strong>
+							</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+			<div class="container">
+				<div class="row text-center mb-3" style="text-align:center">
+					<div class="col">
+						<h3>Clusters</h3>
+					</div>
+				</div>				
+			</div>
+		</div>
+
+		<style>
+
+			.sidenav a 
+			{
+				
+				margin-left: 10px!important;
+				margin-right: 0px!important;
+			}
+
+			.sottoMenu
+			{
+				text-align: left!important;
+			}
+
+			.btn-check:focus+.btn, .btn:focus 
+			{
+				outline: 0;
+				box-shadow: 0 0 0 0.2rem transparent; 
+			}
+	
+		</style>
+		<!-- Popper.js first, then Bootstrap JS -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+			integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+			integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+			crossorigin="anonymous"
+		></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	
+
+		<script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+		<script src="js/IMK_utils.js"></script>
+		<script src="js/menuCluster.js"></script>
+	</body>
+</html>

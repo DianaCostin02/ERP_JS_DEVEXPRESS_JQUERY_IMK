@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="it">
+	<head>
+		<title>QR Code Scanner</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Cache-Control" content="must-revalidate" />
+		<link rel="icon"	href="/images/new_logo.png"	/>
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link rel="stylesheet" href="./css/main.css" />
+	</head>
+
+	<body style="display: block;">
+		<div id="main">
+			<nav class="navbar navbar-dark bg-dark pt-0 mt-0">
+				<div class="row row-pers">
+					<div class="col col-pers center">
+						<a class="navbar-brand" style="font-size: 2em; " href="/">Intermek </a>
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		<div class="containerScan center mt-1">
+			<a id="btn-scan-qr" class="btn btn-dark">Scansiona</a>
+			<canvas hidden="" id="qr-canvas"></canvas>
+
+			<div id="qr-result" class="mt-2" hidden="">
+				<div class="row row-pers">
+					<div class="col col-pers center">
+						<p id="outputData"></p>
+					</div>
+				</div>
+				<div class="row">					
+					<div class="col-4 col-pers center">
+						<p>Codice: </p><p id="artCodice" class="link"></p>
+					</div>
+					<div class="col-4 col-pers center">
+						<p>Descrizione: </p><p class="center" id="artDescrizione"></p>
+					</div>
+					<div class="col-4 col-pers center">
+						<p>Ubicazione: </p><p id="artUbicazione"></p>
+					</div>
+				</div>
+
+				<div class="sezioneRettifica">
+					<div class="row row-pers mb-2">
+						<div class="col col-pers center">
+							<p class="p-pers" id="artGiacenza"></p><input class="center" style="width: 200px" type="number" id="Giac"/>
+						</div>
+						<div class="col col-pers center">
+							<p class="p-pers" id="artOrdinato"></p>
+						</div>
+					</div>
+				
+					<div class="row row-pers mb-2">
+						<div class="col col-pers center">
+							<p class="p-pers" id="artImpegnato"></p>
+						</div>
+						<div class="col col-pers center">
+							<p class="p-pers" id="artProduzione"></p>
+						</div>
+					</div>
+					
+					<div class="row row-pers">
+						<div class="col col-pers center">
+							<p id="artDisponibilità"></p>
+						</div>
+						<div class="col col-pers center">
+							<p id="artScorta"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row row-pers">
+				<div class="col col-pers center">
+			<!--		<button class="btn btn-primary d-none" id="btnPrelievoMaga">Prelievo a Magazzino</button>-->
+					<button class="btn btn-primary d-none" id="btnRettifica">Rettifica</button>
+				</div>
+			</div>
+
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<button class="btn btn-primary d-none" id="btnRedirectCommessa">Vai alla schermata di commessa</button>
+				</div>
+			</div>
+
+			<div class="row row-pers">
+				<div class="col col-pers center">
+					<button class="btn btn-primary d-none" id="btnAddImpAndDiba">Aggiungi impegno + diba</button>
+				</div>
+			</div>
+		</div>
+		<!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"></script>
+
+        <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+        <script src="js/IMK_utils.js"></script>
+		<script src="js/IMK_scanQR.js"></script>
+	</body>
+</html>

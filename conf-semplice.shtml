@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="must-revalidate" />
+    <link rel="icon" href="/images/new_logo.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+
+    <link href="../css/main.css" rel="stylesheet" />
+
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous">
+        </script>
+
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/IMK_utils.js"></script>
+    <script src="js/conf-semplice.js"></script>
+
+    <title>Intermek</title>
+</head>
+
+<body>
+    <div class="font13" style="padding: 20px;">
+        <!-- Logo Intermek e logo TUV -->
+        <div class="row row-pers">
+            <div class="col-6 col-pers left">
+                <img width="300" height="150" src="./images/LogoNewScritte.png" alt="...">
+            </div>
+            <div class="col-2 col-pers"></div>
+            <div class="col-4 col-pers">
+                <div class="row row-pers">
+                    <div class="col col-pers right">
+                        <img width="72" height="100" src="./images/logo-TUV2017.jpg" alt="...">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Anagrafica del cliente -->
+        <div class="row row-pers">
+            <div class="col-6 col-pers left">
+                <br>
+                <p class="p-pers"><strong>Destinatario</strong></p>
+                <p class="p-pers" id="CO_dest"></p>
+            </div>
+            <div class="col-6 col-pers left">
+                <br>
+                <p class="p-pers"><strong>Spett.le</strong></p>
+                <p class="p-pers" id="CO_ragsoc"></p>
+            </div>
+        </div>
+        <br>
+        <!-- Indirizzo del cliente -->
+        <div class="row row-pers">
+            <div class="col-6 col-pers">
+                <p class="p-pers" id="CO_indirizzoDest"></p>
+                <p class="p-pers" id="CO_cittaDest"></p>
+            </div>
+            <div class="col-6 col-pers left">
+                <p class="p-pers" id="CO_indirizzo"></p>
+                <p class="p-pers" id="CO_citta"></p>
+            </div>
+        </div>
+        <!-- Testata Conferma d'ordine -->
+        <div class="row row-pers border-full mt-2" style="background-color: lightgray;">
+            <div class="col-3 col-pers left" style="padding-left: 10px;">
+                <p class="p-pers"><strong>CONFERMA D'ORDINE</strong></p>
+            </div>
+            <div class="col-1 col-pers left">
+                <p class="p-pers"><strong>N.</strong></p>
+            </div>
+            <div class="col-2 col-pers left">
+                <p class="p-pers"><strong id="CO_id"></strong></p>
+            </div>
+            <div class="col-4 col-pers left">
+                <div class="row row-pers">
+                    <div class="col-3 col-pers center">
+                        <p class="p-pers"><strong>del</strong></p>
+                    </div>
+                    <div class="col-9 col-pers left">
+                        <p class="p-pers"><strong id="CO_dataEm"></strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-pers font10 border-part">
+            <div class="col-6 col-pers border-r">
+                <div class="row row-pers">
+                    <div class="col-2 col-pers">
+                        <p class="p-pers">Codice</p>
+                    </div>
+                    <div class="col-6 col-pers font12">
+                        <p class="p-pers" id="CO_codice"></p>
+                    </div>
+                    <div class="col-2 col-pers">
+                        <p class="p-pers">Cod.IVA</p>
+                    </div>
+                    <div class="col-2 col-pers center font12">
+                        <p class="p-pers" id="CO_iva"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-pers">
+                <p class="p-pers" id="CO_note"></p>
+            </div>
+        </div>
+        <!-- Tabella dei pezzi -->
+        <!-- <table class="table table-bordered margin-bot-10" style=" height: 100px;"> -->
+        <table class="table margin-bot-10" style=" height: 100px;">
+            <thead class="font11">
+                <tr>
+                    <th scope="col">Pos.</th>
+                    <th scope="col">Codice</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">UM</th>
+                    <th scope="col">Quantità</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Sconto</th>
+                    <th scope="col">Importo</th>
+                    <th scope="col">Cons.</th>
+                </tr>
+            </thead>
+            <tbody class="font12" id="tabRigheOrdine"></tbody>
+        </table>
+        <!-- Footer della Conferma d'ordine -->
+        <div class="row row-pers">
+            <div class="col-8 col-pers">
+                <div class="row row-pers font14 border-full">
+                    <div class="col-2 col-pers">
+                        <p class="p-pers"><strong>Causale</strong></p>
+                    </div>
+                    <div class="col-4 col-pers font12">
+                        <p class="p-pers" id="CO_causale"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-pers">
+                <div class="row row-pers font14 border-notleft" style="background-color: lightgray;">
+                    <div class="col col-pers center">
+                        <p class="p-pers"><strong>Totale imponibile</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-pers">
+            <div class="col-8 col-pers">
+                <div class="row row-pers font14 border-part">
+                    <div class="col-2 col-pers">
+                        <p class="p-pers"><strong>Pagamento</strong></p>
+                    </div>
+                    <div class="col-4 col-pers font12">
+                        <p class="p-pers" id="CO_pagamento"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-pers">
+                <div class="row row-pers font14 border-r border-b">
+                    <div class="col col-pers"></div>
+                    <div class="col col-pers right">
+                        <p class="p-pers"><strong id="CO_valuta"></strong></p>
+                    </div>
+                    <div class="col col-pers center">
+                        <p class="p-pers"><strong id="CO_totale"></strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-pers">
+            <div class="col col-pers">
+                <div class="row row-pers font14 border-part">
+                    <div class="col-1 col-pers">
+                        <p class="p-pers"><strong>Note</strong></p>
+                    </div>
+                    <div class="col-11 col-pers font12">
+                        <p class="p-pers" id="CO_Note"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-pers mt-5 mb-3">
+        <div class="col col-pers center">
+            <button id="btnStampa" class="btn btn-success no-stampa">Stampa</button>
+        </div>
+    </div>
+</body>
+
+</html>
